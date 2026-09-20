@@ -1,0 +1,576 @@
+Staff Member,Room,Date,Time In,Time Out,Total Hours
+Maya R.,Infants A,08/17/2026,6:28 AM,2:31 PM,8.05
+Jordan K.,Infants A,08/17/2026,9:56 AM,6:04 PM,8.13
+Priya M.,Infants A,08/17/2026,7:31 AM,4:32 PM,9.02
+Luis T.,Infants B,08/17/2026,6:29 AM,2:33 PM,8.07
+Hannah B.,Infants B,08/17/2026,10:03 AM,5:59 PM,7.93
+Deshawn W.,Infants B,08/17/2026,7:30 AM,4:31 PM,9.02
+Camila L.,Ones,08/17/2026,6:26 AM,2:32 PM,8.10
+Owen C.,Ones,08/17/2026,9:56 AM,6:06 PM,8.17
+Aisha H.,Ones,08/17/2026,7:27 AM,4:31 PM,9.07
+Tyler D.,Twos A,08/17/2026,6:32 AM,2:35 PM,8.05
+Sofia G.,Twos A,08/17/2026,10:02 AM,6:04 PM,8.03
+Marcus P.,Twos A,08/17/2026,7:33 AM,4:31 PM,8.97
+Elena S.,Twos B,08/17/2026,6:31 AM,2:34 PM,8.05
+Noah A.,Twos B,08/17/2026,10:00 AM,6:03 PM,8.05
+Grace F.,Twos B,08/17/2026,7:31 AM,4:30 PM,8.98
+Andre N.,Threes,08/17/2026,6:32 AM,2:31 PM,7.98
+Leila E.,Threes,08/17/2026,9:56 AM,6:00 PM,8.07
+Ben V.,Threes,08/17/2026,7:27 AM,4:36 PM,9.15
+Rosa J.,Fours A,08/17/2026,6:30 AM,2:30 PM,8.00
+Kevin O.,Fours A,08/17/2026,10:02 AM,6:05 PM,8.05
+Tasha R.,Fours A,08/17/2026,7:29 AM,4:32 PM,9.05
+Emil K.,Fours B,08/17/2026,6:27 AM,2:36 PM,8.15
+Nora M.,Fours B,08/17/2026,10:03 AM,6:00 PM,7.95
+Maya R.,Infants A,08/18/2026,6:26 AM,2:33 PM,8.12
+Jordan K.,Infants A,08/18/2026,10:00 AM,6:00 PM,8.00
+Priya M.,Infants A,08/18/2026,7:26 AM,4:36 PM,9.17
+Luis T.,Infants B,08/18/2026,6:26 AM,2:33 PM,8.12
+Hannah B.,Infants B,08/18/2026,10:00 AM,6:03 PM,8.05
+Deshawn W.,Infants B,08/18/2026,7:29 AM,4:34 PM,9.08
+Camila L.,Ones,08/18/2026,6:29 AM,2:28 PM,7.98
+Owen C.,Ones,08/18/2026,9:57 AM,6:06 PM,8.15
+Aisha H.,Ones,08/18/2026,7:32 AM,4:36 PM,9.07
+Tyler D.,Twos A,08/18/2026,6:32 AM,2:28 PM,7.93
+Sofia G.,Twos A,08/18/2026,10:02 AM,6:04 PM,8.03
+Marcus P.,Twos A,08/18/2026,7:31 AM,4:31 PM,9.00
+Elena S.,Twos B,08/18/2026,6:32 AM,2:30 PM,7.97
+Noah A.,Twos B,08/18/2026,9:56 AM,6:00 PM,8.07
+Grace F.,Twos B,08/18/2026,7:32 AM,4:30 PM,8.97
+Andre N.,Threes,08/18/2026,6:33 AM,2:31 PM,7.97
+Leila E.,Threes,08/18/2026,10:00 AM,6:01 PM,8.02
+Ben V.,Threes,08/18/2026,7:30 AM,4:29 PM,8.98
+Rosa J.,Fours A,08/18/2026,6:26 AM,2:29 PM,8.05
+Kevin O.,Fours A,08/18/2026,10:00 AM,6:02 PM,8.03
+Tasha R.,Fours A,08/18/2026,7:31 AM,4:36 PM,9.08
+Emil K.,Fours B,08/18/2026,6:28 AM,2:35 PM,8.12
+Nora M.,Fours B,08/18/2026,10:00 AM,5:59 PM,7.98
+Maya R.,Infants A,08/19/2026,6:31 AM,2:29 PM,7.97
+Jordan K.,Infants A,08/19/2026,10:01 AM,6:03 PM,8.03
+Priya M.,Infants A,08/19/2026,7:28 AM,4:32 PM,9.07
+Luis T.,Infants B,08/19/2026,6:26 AM,2:34 PM,8.13
+Hannah B.,Infants B,08/19/2026,10:03 AM,5:59 PM,7.93
+Deshawn W.,Infants B,08/19/2026,7:28 AM,4:28 PM,9.00
+Camila L.,Ones,08/19/2026,6:31 AM,2:33 PM,8.03
+Owen C.,Ones,08/19/2026,9:57 AM,6:02 PM,8.08
+Aisha H.,Ones,08/19/2026,7:28 AM,4:29 PM,9.02
+Tyler D.,Twos A,08/19/2026,6:28 AM,2:34 PM,8.10
+Sofia G.,Twos A,08/19/2026,10:02 AM,5:58 PM,7.93
+Marcus P.,Twos A,08/19/2026,7:27 AM,4:33 PM,9.10
+Elena S.,Twos B,08/19/2026,6:26 AM,2:35 PM,8.15
+Noah A.,Twos B,08/19/2026,10:01 AM,6:06 PM,8.08
+Grace F.,Twos B,08/19/2026,7:33 AM,4:34 PM,9.02
+Andre N.,Threes,08/19/2026,6:30 AM,2:34 PM,8.07
+Leila E.,Threes,08/19/2026,10:01 AM,6:03 PM,8.03
+Ben V.,Threes,08/19/2026,7:31 AM,4:34 PM,9.05
+Rosa J.,Fours A,08/19/2026,6:32 AM,2:31 PM,7.98
+Kevin O.,Fours A,08/19/2026,9:57 AM,6:03 PM,8.10
+Tasha R.,Fours A,08/19/2026,7:29 AM,4:35 PM,9.10
+Emil K.,Fours B,08/19/2026,6:29 AM,2:32 PM,8.05
+Nora M.,Fours B,08/19/2026,9:57 AM,6:01 PM,8.07
+Maya R.,Infants A,08/20/2026,6:27 AM,2:35 PM,8.13
+Jordan K.,Infants A,08/20/2026,9:59 AM,6:01 PM,8.03
+Priya M.,Infants A,08/20/2026,7:29 AM,4:35 PM,9.10
+Luis T.,Infants B,08/20/2026,6:29 AM,2:36 PM,8.12
+Hannah B.,Infants B,08/20/2026,10:00 AM,6:03 PM,8.05
+Deshawn W.,Infants B,08/20/2026,7:30 AM,4:34 PM,9.07
+Camila L.,Ones,08/20/2026,6:33 AM,2:31 PM,7.97
+Owen C.,Ones,08/20/2026,10:03 AM,6:05 PM,8.03
+Aisha H.,Ones,08/20/2026,7:27 AM,4:34 PM,9.12
+Tyler D.,Twos A,08/20/2026,6:29 AM,2:32 PM,8.05
+Sofia G.,Twos A,08/20/2026,10:03 AM,5:58 PM,7.92
+Marcus P.,Twos A,08/20/2026,7:29 AM,4:36 PM,9.12
+Elena S.,Twos B,08/20/2026,6:32 AM,2:35 PM,8.05
+Noah A.,Twos B,08/20/2026,10:00 AM,6:05 PM,8.08
+Grace F.,Twos B,08/20/2026,7:30 AM,4:32 PM,9.03
+Andre N.,Threes,08/20/2026,6:26 AM,2:31 PM,8.08
+Leila E.,Threes,08/20/2026,10:03 AM,6:03 PM,8.00
+Ben V.,Threes,08/20/2026,7:27 AM,4:36 PM,9.15
+Rosa J.,Fours A,08/20/2026,6:27 AM,2:29 PM,8.03
+Kevin O.,Fours A,08/20/2026,9:57 AM,6:05 PM,8.13
+Tasha R.,Fours A,08/20/2026,7:33 AM,4:34 PM,9.02
+Emil K.,Fours B,08/20/2026,6:27 AM,2:33 PM,8.10
+Nora M.,Fours B,08/20/2026,9:59 AM,6:06 PM,8.12
+Maya R.,Infants A,08/21/2026,6:27 AM,2:35 PM,8.13
+Jordan K.,Infants A,08/21/2026,9:57 AM,6:02 PM,8.08
+Priya M.,Infants A,08/21/2026,7:33 AM,4:36 PM,9.05
+Luis T.,Infants B,08/21/2026,6:26 AM,2:36 PM,8.17
+Hannah B.,Infants B,08/21/2026,9:56 AM,6:01 PM,8.08
+Deshawn W.,Infants B,08/21/2026,7:29 AM,4:35 PM,9.10
+Camila L.,Ones,08/21/2026,6:28 AM,2:29 PM,8.02
+Owen C.,Ones,08/21/2026,9:57 AM,6:06 PM,8.15
+Aisha H.,Ones,08/21/2026,7:27 AM,4:31 PM,9.07
+Tyler D.,Twos A,08/21/2026,6:26 AM,2:29 PM,8.05
+Sofia G.,Twos A,08/21/2026,10:01 AM,6:00 PM,7.98
+Marcus P.,Twos A,08/21/2026,7:32 AM,4:31 PM,8.98
+Elena S.,Twos B,08/21/2026,6:26 AM,2:29 PM,8.05
+Noah A.,Twos B,08/21/2026,9:58 AM,6:00 PM,8.03
+Grace F.,Twos B,08/21/2026,7:31 AM,4:35 PM,9.07
+Andre N.,Threes,08/21/2026,6:31 AM,2:35 PM,8.07
+Leila E.,Threes,08/21/2026,9:56 AM,6:06 PM,8.17
+Ben V.,Threes,08/21/2026,7:30 AM,4:33 PM,9.05
+Rosa J.,Fours A,08/21/2026,6:27 AM,2:28 PM,8.02
+Kevin O.,Fours A,08/21/2026,9:56 AM,6:00 PM,8.07
+Tasha R.,Fours A,08/21/2026,7:32 AM,4:30 PM,8.97
+Emil K.,Fours B,08/21/2026,6:33 AM,2:30 PM,7.95
+Nora M.,Fours B,08/21/2026,9:57 AM,6:06 PM,8.15
+Maya R.,Infants A,08/24/2026,6:31 AM,2:29 PM,7.97
+Jordan K.,Infants A,08/24/2026,9:57 AM,6:00 PM,8.05
+Priya M.,Infants A,08/24/2026,7:33 AM,4:30 PM,8.95
+Luis T.,Infants B,08/24/2026,6:27 AM,2:33 PM,8.10
+Hannah B.,Infants B,08/24/2026,10:02 AM,5:58 PM,7.93
+Deshawn W.,Infants B,08/24/2026,7:33 AM,4:30 PM,8.95
+Camila L.,Ones,08/24/2026,6:32 AM,2:28 PM,7.93
+Owen C.,Ones,08/24/2026,10:00 AM,5:59 PM,7.98
+Aisha H.,Ones,08/24/2026,7:26 AM,4:32 PM,9.10
+Tyler D.,Twos A,08/24/2026,6:29 AM,2:36 PM,8.12
+Sofia G.,Twos A,08/24/2026,9:58 AM,6:00 PM,8.03
+Marcus P.,Twos A,08/24/2026,7:30 AM,4:31 PM,9.02
+Elena S.,Twos B,08/24/2026,6:31 AM,2:31 PM,8.00
+Noah A.,Twos B,08/24/2026,9:57 AM,6:04 PM,8.12
+Grace F.,Twos B,08/24/2026,7:27 AM,4:33 PM,9.10
+Andre N.,Threes,08/24/2026,6:30 AM,2:32 PM,8.03
+Leila E.,Threes,08/24/2026,9:58 AM,6:04 PM,8.10
+Ben V.,Threes,08/24/2026,7:30 AM,4:28 PM,8.97
+Rosa J.,Fours A,08/24/2026,6:30 AM,2:29 PM,7.98
+Kevin O.,Fours A,08/24/2026,9:58 AM,5:58 PM,8.00
+Tasha R.,Fours A,08/24/2026,7:30 AM,4:33 PM,9.05
+Emil K.,Fours B,08/24/2026,6:32 AM,2:29 PM,7.95
+Nora M.,Fours B,08/24/2026,10:01 AM,6:06 PM,8.08
+Maya R.,Infants A,08/25/2026,6:30 AM,2:29 PM,7.98
+Jordan K.,Infants A,08/25/2026,10:02 AM,6:06 PM,8.07
+Priya M.,Infants A,08/25/2026,7:27 AM,4:35 PM,9.13
+Luis T.,Infants B,08/25/2026,6:26 AM,2:34 PM,8.13
+Hannah B.,Infants B,08/25/2026,9:58 AM,6:01 PM,8.05
+Deshawn W.,Infants B,08/25/2026,7:27 AM,4:34 PM,9.12
+Camila L.,Ones,08/25/2026,6:27 AM,2:32 PM,8.08
+Owen C.,Ones,08/25/2026,9:57 AM,6:03 PM,8.10
+Aisha H.,Ones,08/25/2026,7:32 AM,4:34 PM,9.03
+Tyler D.,Twos A,08/25/2026,6:29 AM,2:34 PM,8.08
+Sofia G.,Twos A,08/25/2026,9:56 AM,6:00 PM,8.07
+Marcus P.,Twos A,08/25/2026,7:32 AM,4:36 PM,9.07
+Elena S.,Twos B,08/25/2026,6:31 AM,2:33 PM,8.03
+Noah A.,Twos B,08/25/2026,9:56 AM,5:58 PM,8.03
+Grace F.,Twos B,08/25/2026,7:30 AM,4:28 PM,8.97
+Andre N.,Threes,08/25/2026,6:28 AM,2:32 PM,8.07
+Leila E.,Threes,08/25/2026,9:58 AM,6:06 PM,8.13
+Ben V.,Threes,08/25/2026,7:27 AM,4:33 PM,9.10
+Rosa J.,Fours A,08/25/2026,6:28 AM,2:29 PM,8.02
+Kevin O.,Fours A,08/25/2026,10:00 AM,6:02 PM,8.03
+Tasha R.,Fours A,08/25/2026,7:32 AM,4:35 PM,9.05
+Emil K.,Fours B,08/25/2026,6:33 AM,2:28 PM,7.92
+Nora M.,Fours B,08/25/2026,10:00 AM,6:05 PM,8.08
+Maya R.,Infants A,08/26/2026,6:30 AM,2:31 PM,8.02
+Jordan K.,Infants A,08/26/2026,9:56 AM,6:01 PM,8.08
+Priya M.,Infants A,08/26/2026,7:26 AM,4:34 PM,9.13
+Luis T.,Infants B,08/26/2026,6:27 AM,2:30 PM,8.05
+Hannah B.,Infants B,08/26/2026,10:01 AM,6:00 PM,7.98
+Deshawn W.,Infants B,08/26/2026,7:32 AM,4:28 PM,8.93
+Camila L.,Ones,08/26/2026,6:32 AM,2:29 PM,7.95
+Owen C.,Ones,08/26/2026,10:03 AM,6:06 PM,8.05
+Aisha H.,Ones,08/26/2026,7:27 AM,4:29 PM,9.03
+Tyler D.,Twos A,08/26/2026,6:26 AM,2:29 PM,8.05
+Sofia G.,Twos A,08/26/2026,10:01 AM,6:01 PM,8.00
+Marcus P.,Twos A,08/26/2026,7:33 AM,4:29 PM,8.93
+Elena S.,Twos B,08/26/2026,6:28 AM,2:30 PM,8.03
+Noah A.,Twos B,08/26/2026,10:00 AM,6:05 PM,8.08
+Grace F.,Twos B,08/26/2026,7:32 AM,4:29 PM,8.95
+Andre N.,Threes,08/26/2026,6:31 AM,2:34 PM,8.05
+Leila E.,Threes,08/26/2026,9:58 AM,6:03 PM,8.08
+Ben V.,Threes,08/26/2026,7:27 AM,4:30 PM,9.05
+Rosa J.,Fours A,08/26/2026,6:33 AM,2:30 PM,7.95
+Kevin O.,Fours A,08/26/2026,10:03 AM,6:06 PM,8.05
+Tasha R.,Fours A,08/26/2026,7:27 AM,4:33 PM,9.10
+Emil K.,Fours B,08/26/2026,6:26 AM,2:31 PM,8.08
+Nora M.,Fours B,08/26/2026,10:02 AM,5:59 PM,7.95
+Maya R.,Infants A,08/27/2026,6:28 AM,2:36 PM,8.13
+Jordan K.,Infants A,08/27/2026,9:59 AM,6:01 PM,8.03
+Priya M.,Infants A,08/27/2026,7:32 AM,4:30 PM,8.97
+Luis T.,Infants B,08/27/2026,6:33 AM,2:34 PM,8.02
+Hannah B.,Infants B,08/27/2026,9:59 AM,6:03 PM,8.07
+Deshawn W.,Infants B,08/27/2026,7:32 AM,4:28 PM,8.93
+Camila L.,Ones,08/27/2026,6:33 AM,2:36 PM,8.05
+Owen C.,Ones,08/27/2026,10:02 AM,5:58 PM,7.93
+Aisha H.,Ones,08/27/2026,7:27 AM,4:35 PM,9.13
+Tyler D.,Twos A,08/27/2026,6:30 AM,2:34 PM,8.07
+Sofia G.,Twos A,08/27/2026,10:03 AM,6:05 PM,8.03
+Marcus P.,Twos A,08/27/2026,7:26 AM,4:34 PM,9.13
+Elena S.,Twos B,08/27/2026,6:27 AM,2:34 PM,8.12
+Noah A.,Twos B,08/27/2026,10:01 AM,6:01 PM,8.00
+Grace F.,Twos B,08/27/2026,7:31 AM,4:30 PM,8.98
+Andre N.,Threes,08/27/2026,6:27 AM,2:32 PM,8.08
+Leila E.,Threes,08/27/2026,10:01 AM,6:03 PM,8.03
+Ben V.,Threes,08/27/2026,7:29 AM,4:33 PM,9.07
+Rosa J.,Fours A,08/27/2026,6:26 AM,2:30 PM,8.07
+Kevin O.,Fours A,08/27/2026,10:03 AM,6:00 PM,7.95
+Tasha R.,Fours A,08/27/2026,7:32 AM,4:28 PM,8.93
+Emil K.,Fours B,08/27/2026,6:26 AM,2:32 PM,8.10
+Nora M.,Fours B,08/27/2026,10:02 AM,6:00 PM,7.97
+Maya R.,Infants A,08/28/2026,6:30 AM,2:29 PM,7.98
+Jordan K.,Infants A,08/28/2026,9:56 AM,6:03 PM,8.12
+Priya M.,Infants A,08/28/2026,7:27 AM,4:33 PM,9.10
+Luis T.,Infants B,08/28/2026,6:32 AM,2:33 PM,8.02
+Hannah B.,Infants B,08/28/2026,10:01 AM,5:59 PM,7.97
+Deshawn W.,Infants B,08/28/2026,7:28 AM,4:35 PM,9.12
+Camila L.,Ones,08/28/2026,6:30 AM,2:30 PM,8.00
+Owen C.,Ones,08/28/2026,9:58 AM,6:03 PM,8.08
+Aisha H.,Ones,08/28/2026,7:26 AM,4:33 PM,9.12
+Tyler D.,Twos A,08/28/2026,6:33 AM,2:29 PM,7.93
+Sofia G.,Twos A,08/28/2026,9:57 AM,6:04 PM,8.12
+Marcus P.,Twos A,08/28/2026,7:31 AM,4:34 PM,9.05
+Elena S.,Twos B,08/28/2026,6:33 AM,2:34 PM,8.02
+Noah A.,Twos B,08/28/2026,9:58 AM,6:00 PM,8.03
+Grace F.,Twos B,08/28/2026,7:26 AM,4:31 PM,9.08
+Andre N.,Threes,08/28/2026,6:28 AM,2:32 PM,8.07
+Leila E.,Threes,08/28/2026,10:01 AM,5:59 PM,7.97
+Ben V.,Threes,08/28/2026,7:31 AM,4:32 PM,9.02
+Rosa J.,Fours A,08/28/2026,6:33 AM,2:33 PM,8.00
+Kevin O.,Fours A,08/28/2026,10:00 AM,6:04 PM,8.07
+Tasha R.,Fours A,08/28/2026,7:28 AM,4:30 PM,9.03
+Emil K.,Fours B,08/28/2026,6:29 AM,2:34 PM,8.08
+Nora M.,Fours B,08/28/2026,9:58 AM,6:00 PM,8.03
+Maya R.,Infants A,08/31/2026,6:28 AM,2:32 PM,8.07
+Jordan K.,Infants A,08/31/2026,9:56 AM,5:58 PM,8.03
+Priya M.,Infants A,08/31/2026,7:33 AM,4:34 PM,9.02
+Luis T.,Infants B,08/31/2026,6:27 AM,2:35 PM,8.13
+Hannah B.,Infants B,08/31/2026,10:01 AM,5:58 PM,7.95
+Deshawn W.,Infants B,08/31/2026,7:28 AM,4:36 PM,9.13
+Camila L.,Ones,08/31/2026,6:31 AM,2:30 PM,7.98
+Owen C.,Ones,08/31/2026,9:57 AM,6:00 PM,8.05
+Aisha H.,Ones,08/31/2026,7:32 AM,4:33 PM,9.02
+Tyler D.,Twos A,08/31/2026,6:33 AM,2:29 PM,7.93
+Sofia G.,Twos A,08/31/2026,9:59 AM,6:04 PM,8.08
+Marcus P.,Twos A,08/31/2026,7:31 AM,4:35 PM,9.07
+Elena S.,Twos B,08/31/2026,6:32 AM,2:32 PM,8.00
+Noah A.,Twos B,08/31/2026,10:01 AM,6:06 PM,8.08
+Grace F.,Twos B,08/31/2026,7:30 AM,4:29 PM,8.98
+Andre N.,Threes,08/31/2026,6:30 AM,2:29 PM,7.98
+Leila E.,Threes,08/31/2026,9:56 AM,6:04 PM,8.13
+Ben V.,Threes,08/31/2026,7:32 AM,4:34 PM,9.03
+Rosa J.,Fours A,08/31/2026,6:33 AM,2:35 PM,8.03
+Kevin O.,Fours A,08/31/2026,9:57 AM,5:59 PM,8.03
+Tasha R.,Fours A,08/31/2026,7:26 AM,4:33 PM,9.12
+Emil K.,Fours B,08/31/2026,6:30 AM,2:31 PM,8.02
+Nora M.,Fours B,08/31/2026,9:58 AM,5:59 PM,8.02
+Maya R.,Infants A,09/01/2026,6:32 AM,2:29 PM,7.95
+Jordan K.,Infants A,09/01/2026,9:59 AM,5:58 PM,7.98
+Priya M.,Infants A,09/01/2026,7:29 AM,4:34 PM,9.08
+Luis T.,Infants B,09/01/2026,6:29 AM,2:28 PM,7.98
+Hannah B.,Infants B,09/01/2026,9:58 AM,5:58 PM,8.00
+Deshawn W.,Infants B,09/01/2026,7:30 AM,4:31 PM,9.02
+Camila L.,Ones,09/01/2026,6:30 AM,2:35 PM,8.08
+Owen C.,Ones,09/01/2026,10:02 AM,6:00 PM,7.97
+Aisha H.,Ones,09/01/2026,7:32 AM,4:30 PM,8.97
+Tyler D.,Twos A,09/01/2026,6:30 AM,2:33 PM,8.05
+Sofia G.,Twos A,09/01/2026,10:03 AM,6:06 PM,8.05
+Marcus P.,Twos A,09/01/2026,7:29 AM,4:34 PM,9.08
+Elena S.,Twos B,09/01/2026,6:30 AM,2:36 PM,8.10
+Noah A.,Twos B,09/01/2026,9:58 AM,5:58 PM,8.00
+Grace F.,Twos B,09/01/2026,7:28 AM,4:33 PM,9.08
+Andre N.,Threes,09/01/2026,6:26 AM,2:31 PM,8.08
+Leila E.,Threes,09/01/2026,10:02 AM,6:05 PM,8.05
+Ben V.,Threes,09/01/2026,7:26 AM,4:33 PM,9.12
+Rosa J.,Fours A,09/01/2026,6:27 AM,2:30 PM,8.05
+Kevin O.,Fours A,09/01/2026,9:58 AM,5:59 PM,8.02
+Tasha R.,Fours A,09/01/2026,7:30 AM,4:31 PM,9.02
+Emil K.,Fours B,09/01/2026,6:27 AM,2:36 PM,8.15
+Nora M.,Fours B,09/01/2026,9:59 AM,6:04 PM,8.08
+Maya R.,Infants A,09/02/2026,6:29 AM,2:33 PM,8.07
+Jordan K.,Infants A,09/02/2026,9:56 AM,6:03 PM,8.12
+Priya M.,Infants A,09/02/2026,7:29 AM,4:29 PM,9.00
+Luis T.,Infants B,09/02/2026,6:31 AM,2:34 PM,8.05
+Hannah B.,Infants B,09/02/2026,10:03 AM,6:03 PM,8.00
+Deshawn W.,Infants B,09/02/2026,7:29 AM,4:32 PM,9.05
+Camila L.,Ones,09/02/2026,6:28 AM,2:34 PM,8.10
+Owen C.,Ones,09/02/2026,10:01 AM,6:05 PM,8.07
+Aisha H.,Ones,09/02/2026,7:33 AM,4:29 PM,8.93
+Tyler D.,Twos A,09/02/2026,6:31 AM,2:35 PM,8.07
+Sofia G.,Twos A,09/02/2026,9:57 AM,6:02 PM,8.08
+Marcus P.,Twos A,09/02/2026,7:33 AM,4:30 PM,8.95
+Elena S.,Twos B,09/02/2026,6:32 AM,2:32 PM,8.00
+Noah A.,Twos B,09/02/2026,10:02 AM,6:05 PM,8.05
+Grace F.,Twos B,09/02/2026,7:32 AM,4:34 PM,9.03
+Andre N.,Threes,09/02/2026,6:27 AM,2:33 PM,8.10
+Leila E.,Threes,09/02/2026,9:58 AM,6:02 PM,8.07
+Ben V.,Threes,09/02/2026,7:33 AM,4:35 PM,9.03
+Rosa J.,Fours A,09/02/2026,6:33 AM,2:35 PM,8.03
+Kevin O.,Fours A,09/02/2026,9:56 AM,6:01 PM,8.08
+Tasha R.,Fours A,09/02/2026,7:26 AM,4:34 PM,9.13
+Emil K.,Fours B,09/02/2026,6:33 AM,2:32 PM,7.98
+Nora M.,Fours B,09/02/2026,9:56 AM,6:02 PM,8.10
+Maya R.,Infants A,09/03/2026,6:32 AM,2:36 PM,8.07
+Jordan K.,Infants A,09/03/2026,10:03 AM,5:58 PM,7.92
+Priya M.,Infants A,09/03/2026,7:26 AM,4:30 PM,9.07
+Luis T.,Infants B,09/03/2026,6:28 AM,2:29 PM,8.02
+Hannah B.,Infants B,09/03/2026,10:00 AM,6:06 PM,8.10
+Deshawn W.,Infants B,09/03/2026,7:32 AM,4:35 PM,9.05
+Camila L.,Ones,09/03/2026,6:30 AM,2:35 PM,8.08
+Owen C.,Ones,09/03/2026,9:58 AM,6:05 PM,8.12
+Aisha H.,Ones,09/03/2026,7:27 AM,4:28 PM,9.02
+Tyler D.,Twos A,09/03/2026,6:32 AM,2:29 PM,7.95
+Sofia G.,Twos A,09/03/2026,9:59 AM,5:58 PM,7.98
+Marcus P.,Twos A,09/03/2026,7:30 AM,4:28 PM,8.97
+Elena S.,Twos B,09/03/2026,6:31 AM,2:35 PM,8.07
+Noah A.,Twos B,09/03/2026,10:01 AM,5:59 PM,7.97
+Grace F.,Twos B,09/03/2026,7:27 AM,4:29 PM,9.03
+Andre N.,Threes,09/03/2026,6:30 AM,2:36 PM,8.10
+Leila E.,Threes,09/03/2026,10:01 AM,5:59 PM,7.97
+Ben V.,Threes,09/03/2026,7:33 AM,4:34 PM,9.02
+Rosa J.,Fours A,09/03/2026,6:27 AM,2:35 PM,8.13
+Kevin O.,Fours A,09/03/2026,10:00 AM,5:59 PM,7.98
+Tasha R.,Fours A,09/03/2026,7:29 AM,4:33 PM,9.07
+Emil K.,Fours B,09/03/2026,6:29 AM,2:32 PM,8.05
+Nora M.,Fours B,09/03/2026,10:02 AM,6:04 PM,8.03
+Maya R.,Infants A,09/04/2026,6:27 AM,2:28 PM,8.02
+Jordan K.,Infants A,09/04/2026,9:58 AM,5:59 PM,8.02
+Priya M.,Infants A,09/04/2026,7:29 AM,4:34 PM,9.08
+Luis T.,Infants B,09/04/2026,6:31 AM,2:32 PM,8.02
+Hannah B.,Infants B,09/04/2026,9:56 AM,6:06 PM,8.17
+Deshawn W.,Infants B,09/04/2026,7:31 AM,4:33 PM,9.03
+Camila L.,Ones,09/04/2026,6:32 AM,2:34 PM,8.03
+Owen C.,Ones,09/04/2026,10:01 AM,6:03 PM,8.03
+Aisha H.,Ones,09/04/2026,7:29 AM,4:35 PM,9.10
+Tyler D.,Twos A,09/04/2026,6:31 AM,2:30 PM,7.98
+Sofia G.,Twos A,09/04/2026,10:03 AM,6:06 PM,8.05
+Marcus P.,Twos A,09/04/2026,7:31 AM,4:36 PM,9.08
+Elena S.,Twos B,09/04/2026,6:31 AM,2:30 PM,7.98
+Noah A.,Twos B,09/04/2026,10:02 AM,6:06 PM,8.07
+Grace F.,Twos B,09/04/2026,7:33 AM,4:32 PM,8.98
+Andre N.,Threes,09/04/2026,6:31 AM,2:36 PM,8.08
+Leila E.,Threes,09/04/2026,9:58 AM,6:04 PM,8.10
+Ben V.,Threes,09/04/2026,7:31 AM,4:31 PM,9.00
+Rosa J.,Fours A,09/04/2026,6:27 AM,2:31 PM,8.07
+Kevin O.,Fours A,09/04/2026,9:59 AM,6:04 PM,8.08
+Tasha R.,Fours A,09/04/2026,7:28 AM,4:30 PM,9.03
+Emil K.,Fours B,09/04/2026,6:27 AM,2:28 PM,8.02
+Nora M.,Fours B,09/04/2026,10:00 AM,6:04 PM,8.07
+Maya R.,Infants A,09/07/2026,6:29 AM,2:36 PM,8.12
+Jordan K.,Infants A,09/07/2026,10:01 AM,6:03 PM,8.03
+Priya M.,Infants A,09/07/2026,7:27 AM,4:28 PM,9.02
+Luis T.,Infants B,09/07/2026,6:32 AM,2:33 PM,8.02
+Hannah B.,Infants B,09/07/2026,9:56 AM,6:04 PM,8.13
+Deshawn W.,Infants B,09/07/2026,7:32 AM,4:36 PM,9.07
+Camila L.,Ones,09/07/2026,6:30 AM,2:28 PM,7.97
+Owen C.,Ones,09/07/2026,10:01 AM,6:01 PM,8.00
+Aisha H.,Ones,09/07/2026,7:31 AM,4:35 PM,9.07
+Tyler D.,Twos A,09/07/2026,6:32 AM,2:30 PM,7.97
+Sofia G.,Twos A,09/07/2026,9:56 AM,6:05 PM,8.15
+Marcus P.,Twos A,09/07/2026,7:32 AM,4:32 PM,9.00
+Elena S.,Twos B,09/07/2026,6:32 AM,2:33 PM,8.02
+Noah A.,Twos B,09/07/2026,10:00 AM,6:04 PM,8.07
+Grace F.,Twos B,09/07/2026,7:32 AM,4:28 PM,8.93
+Andre N.,Threes,09/07/2026,6:27 AM,2:30 PM,8.05
+Leila E.,Threes,09/07/2026,9:56 AM,6:05 PM,8.15
+Ben V.,Threes,09/07/2026,7:33 AM,4:35 PM,9.03
+Rosa J.,Fours A,09/07/2026,6:33 AM,2:32 PM,7.98
+Kevin O.,Fours A,09/07/2026,9:56 AM,5:59 PM,8.05
+Tasha R.,Fours A,09/07/2026,7:26 AM,4:35 PM,9.15
+Emil K.,Fours B,09/07/2026,6:26 AM,2:35 PM,8.15
+Nora M.,Fours B,09/07/2026,10:01 AM,6:05 PM,8.07
+Maya R.,Infants A,09/08/2026,6:26 AM,2:36 PM,8.17
+Jordan K.,Infants A,09/08/2026,9:59 AM,6:02 PM,8.05
+Priya M.,Infants A,09/08/2026,7:29 AM,4:34 PM,9.08
+Luis T.,Infants B,09/08/2026,6:27 AM,2:32 PM,8.08
+Hannah B.,Infants B,09/08/2026,9:57 AM,6:04 PM,8.12
+Deshawn W.,Infants B,09/08/2026,7:30 AM,4:31 PM,9.02
+Camila L.,Ones,09/08/2026,6:29 AM,2:28 PM,7.98
+Owen C.,Ones,09/08/2026,10:00 AM,6:02 PM,8.03
+Aisha H.,Ones,09/08/2026,7:33 AM,4:30 PM,8.95
+Tyler D.,Twos A,09/08/2026,6:26 AM,2:28 PM,8.03
+Sofia G.,Twos A,09/08/2026,10:03 AM,6:06 PM,8.05
+Marcus P.,Twos A,09/08/2026,7:32 AM,4:29 PM,8.95
+Elena S.,Twos B,09/08/2026,6:27 AM,2:36 PM,8.15
+Noah A.,Twos B,09/08/2026,9:57 AM,6:03 PM,8.10
+Grace F.,Twos B,09/08/2026,7:31 AM,4:35 PM,9.07
+Andre N.,Threes,09/08/2026,6:33 AM,2:30 PM,7.95
+Leila E.,Threes,09/08/2026,9:57 AM,6:05 PM,8.13
+Ben V.,Threes,09/08/2026,7:26 AM,4:28 PM,9.03
+Rosa J.,Fours A,09/08/2026,6:28 AM,2:34 PM,8.10
+Kevin O.,Fours A,09/08/2026,10:02 AM,6:05 PM,8.05
+Tasha R.,Fours A,09/08/2026,7:28 AM,4:36 PM,9.13
+Emil K.,Fours B,09/08/2026,6:33 AM,2:36 PM,8.05
+Nora M.,Fours B,09/08/2026,10:02 AM,6:03 PM,8.02
+Maya R.,Infants A,09/09/2026,6:28 AM,2:28 PM,8.00
+Jordan K.,Infants A,09/09/2026,9:58 AM,6:00 PM,8.03
+Priya M.,Infants A,09/09/2026,7:26 AM,4:36 PM,9.17
+Luis T.,Infants B,09/09/2026,6:30 AM,2:29 PM,7.98
+Hannah B.,Infants B,09/09/2026,9:56 AM,6:03 PM,8.12
+Deshawn W.,Infants B,09/09/2026,7:28 AM,4:36 PM,9.13
+Camila L.,Ones,09/09/2026,6:32 AM,2:30 PM,7.97
+Owen C.,Ones,09/09/2026,9:57 AM,6:01 PM,8.07
+Aisha H.,Ones,09/09/2026,7:32 AM,4:35 PM,9.05
+Tyler D.,Twos A,09/09/2026,6:27 AM,2:35 PM,8.13
+Sofia G.,Twos A,09/09/2026,9:57 AM,6:00 PM,8.05
+Marcus P.,Twos A,09/09/2026,7:31 AM,4:33 PM,9.03
+Elena S.,Twos B,09/09/2026,6:29 AM,2:30 PM,8.02
+Noah A.,Twos B,09/09/2026,10:00 AM,5:59 PM,7.98
+Grace F.,Twos B,09/09/2026,7:33 AM,4:31 PM,8.97
+Andre N.,Threes,09/09/2026,6:29 AM,2:35 PM,8.10
+Leila E.,Threes,09/09/2026,9:57 AM,6:01 PM,8.07
+Ben V.,Threes,09/09/2026,7:27 AM,4:30 PM,9.05
+Rosa J.,Fours A,09/09/2026,6:29 AM,2:28 PM,7.98
+Kevin O.,Fours A,09/09/2026,9:57 AM,5:59 PM,8.03
+Tasha R.,Fours A,09/09/2026,7:28 AM,4:32 PM,9.07
+Emil K.,Fours B,09/09/2026,6:32 AM,2:28 PM,7.93
+Nora M.,Fours B,09/09/2026,10:02 AM,6:06 PM,8.07
+Maya R.,Infants A,09/10/2026,6:29 AM,2:32 PM,8.05
+Jordan K.,Infants A,09/10/2026,9:56 AM,6:05 PM,8.15
+Priya M.,Infants A,09/10/2026,7:27 AM,4:35 PM,9.13
+Luis T.,Infants B,09/10/2026,6:31 AM,2:34 PM,8.05
+Hannah B.,Infants B,09/10/2026,9:56 AM,6:00 PM,8.07
+Deshawn W.,Infants B,09/10/2026,7:30 AM,4:36 PM,9.10
+Camila L.,Ones,09/10/2026,6:32 AM,2:36 PM,8.07
+Owen C.,Ones,09/10/2026,9:58 AM,6:05 PM,8.12
+Aisha H.,Ones,09/10/2026,7:28 AM,4:35 PM,9.12
+Tyler D.,Twos A,09/10/2026,6:32 AM,2:32 PM,8.00
+Sofia G.,Twos A,09/10/2026,10:00 AM,6:04 PM,8.07
+Marcus P.,Twos A,09/10/2026,7:29 AM,4:31 PM,9.03
+Elena S.,Twos B,09/10/2026,6:30 AM,2:34 PM,8.07
+Noah A.,Twos B,09/10/2026,9:59 AM,6:02 PM,8.05
+Grace F.,Twos B,09/10/2026,7:30 AM,4:36 PM,9.10
+Andre N.,Threes,09/10/2026,6:32 AM,2:33 PM,8.02
+Leila E.,Threes,09/10/2026,10:03 AM,6:01 PM,7.97
+Ben V.,Threes,09/10/2026,7:31 AM,4:33 PM,9.03
+Rosa J.,Fours A,09/10/2026,6:30 AM,2:30 PM,8.00
+Kevin O.,Fours A,09/10/2026,10:03 AM,5:58 PM,7.92
+Tasha R.,Fours A,09/10/2026,7:33 AM,4:36 PM,9.05
+Emil K.,Fours B,09/10/2026,6:29 AM,2:32 PM,8.05
+Nora M.,Fours B,09/10/2026,10:02 AM,6:01 PM,7.98
+Maya R.,Infants A,09/11/2026,6:27 AM,2:34 PM,8.12
+Jordan K.,Infants A,09/11/2026,10:02 AM,6:03 PM,8.02
+Priya M.,Infants A,09/11/2026,7:31 AM,4:30 PM,8.98
+Luis T.,Infants B,09/11/2026,6:33 AM,2:29 PM,7.93
+Hannah B.,Infants B,09/11/2026,10:02 AM,6:02 PM,8.00
+Deshawn W.,Infants B,09/11/2026,7:29 AM,4:30 PM,9.02
+Camila L.,Ones,09/11/2026,6:32 AM,2:36 PM,8.07
+Owen C.,Ones,09/11/2026,10:03 AM,6:00 PM,7.95
+Aisha H.,Ones,09/11/2026,7:30 AM,4:35 PM,9.08
+Tyler D.,Twos A,09/11/2026,6:27 AM,2:32 PM,8.08
+Sofia G.,Twos A,09/11/2026,9:56 AM,6:03 PM,8.12
+Marcus P.,Twos A,09/11/2026,7:28 AM,4:33 PM,9.08
+Elena S.,Twos B,09/11/2026,6:32 AM,2:33 PM,8.02
+Noah A.,Twos B,09/11/2026,10:02 AM,6:04 PM,8.03
+Grace F.,Twos B,09/11/2026,7:29 AM,4:30 PM,9.02
+Andre N.,Threes,09/11/2026,6:31 AM,2:33 PM,8.03
+Leila E.,Threes,09/11/2026,10:03 AM,6:03 PM,8.00
+Ben V.,Threes,09/11/2026,7:26 AM,4:35 PM,9.15
+Rosa J.,Fours A,09/11/2026,6:33 AM,2:36 PM,8.05
+Kevin O.,Fours A,09/11/2026,10:03 AM,6:01 PM,7.97
+Tasha R.,Fours A,09/11/2026,7:26 AM,4:29 PM,9.05
+Emil K.,Fours B,09/11/2026,6:28 AM,2:36 PM,8.13
+Nora M.,Fours B,09/11/2026,9:56 AM,6:05 PM,8.15
+Maya R.,Infants A,09/14/2026,6:32 AM,2:33 PM,8.02
+Jordan K.,Infants A,09/14/2026,9:59 AM,6:04 PM,8.08
+Priya M.,Infants A,09/14/2026,7:32 AM,4:33 PM,9.02
+Luis T.,Infants B,09/14/2026,6:32 AM,2:33 PM,8.02
+Hannah B.,Infants B,09/14/2026,9:59 AM,6:05 PM,8.10
+Deshawn W.,Infants B,09/14/2026,7:26 AM,4:33 PM,9.12
+Camila L.,Ones,09/14/2026,6:31 AM,2:36 PM,8.08
+Owen C.,Ones,09/14/2026,10:03 AM,6:01 PM,7.97
+Aisha H.,Ones,09/14/2026,7:32 AM,4:35 PM,9.05
+Tyler D.,Twos A,09/14/2026,6:27 AM,2:31 PM,8.07
+Sofia G.,Twos A,09/14/2026,9:59 AM,6:02 PM,8.05
+Marcus P.,Twos A,09/14/2026,7:30 AM,4:32 PM,9.03
+Elena S.,Twos B,09/14/2026,6:26 AM,2:28 PM,8.03
+Noah A.,Twos B,09/14/2026,9:59 AM,6:06 PM,8.12
+Grace F.,Twos B,09/14/2026,7:29 AM,4:32 PM,9.05
+Andre N.,Threes,09/14/2026,6:30 AM,2:36 PM,8.10
+Leila E.,Threes,09/14/2026,9:58 AM,6:06 PM,8.13
+Ben V.,Threes,09/14/2026,7:28 AM,4:34 PM,9.10
+Rosa J.,Fours A,09/14/2026,6:27 AM,2:30 PM,8.05
+Kevin O.,Fours A,09/14/2026,9:59 AM,6:03 PM,8.07
+Tasha R.,Fours A,09/14/2026,7:32 AM,4:29 PM,8.95
+Emil K.,Fours B,09/14/2026,6:30 AM,2:33 PM,8.05
+Nora M.,Fours B,09/14/2026,9:58 AM,6:00 PM,8.03
+Maya R.,Infants A,09/15/2026,6:32 AM,2:31 PM,7.98
+Jordan K.,Infants A,09/15/2026,10:00 AM,6:01 PM,8.02
+Priya M.,Infants A,09/15/2026,7:29 AM,4:30 PM,9.02
+Luis T.,Infants B,09/15/2026,6:26 AM,2:36 PM,8.17
+Hannah B.,Infants B,09/15/2026,9:58 AM,6:06 PM,8.13
+Deshawn W.,Infants B,09/15/2026,7:33 AM,4:31 PM,8.97
+Camila L.,Ones,09/15/2026,6:29 AM,2:31 PM,8.03
+Owen C.,Ones,09/15/2026,10:02 AM,5:59 PM,7.95
+Aisha H.,Ones,09/15/2026,7:29 AM,4:33 PM,9.07
+Tyler D.,Twos A,09/15/2026,6:32 AM,2:29 PM,7.95
+Sofia G.,Twos A,09/15/2026,9:59 AM,6:06 PM,8.12
+Marcus P.,Twos A,09/15/2026,7:31 AM,4:35 PM,9.07
+Elena S.,Twos B,09/15/2026,6:29 AM,2:36 PM,8.12
+Noah A.,Twos B,09/15/2026,9:59 AM,6:00 PM,8.02
+Grace F.,Twos B,09/15/2026,7:33 AM,4:35 PM,9.03
+Andre N.,Threes,09/15/2026,6:28 AM,2:32 PM,8.07
+Leila E.,Threes,09/15/2026,9:59 AM,5:58 PM,7.98
+Ben V.,Threes,09/15/2026,7:26 AM,4:34 PM,9.13
+Rosa J.,Fours A,09/15/2026,6:29 AM,2:34 PM,8.08
+Kevin O.,Fours A,09/15/2026,10:02 AM,6:02 PM,8.00
+Tasha R.,Fours A,09/15/2026,7:32 AM,4:35 PM,9.05
+Emil K.,Fours B,09/15/2026,6:33 AM,2:31 PM,7.97
+Nora M.,Fours B,09/15/2026,9:58 AM,5:58 PM,8.00
+Maya R.,Infants A,09/16/2026,6:27 AM,2:33 PM,8.10
+Jordan K.,Infants A,09/16/2026,10:01 AM,6:02 PM,8.02
+Priya M.,Infants A,09/16/2026,7:32 AM,4:33 PM,9.02
+Luis T.,Infants B,09/16/2026,6:32 AM,2:36 PM,8.07
+Hannah B.,Infants B,09/16/2026,9:59 AM,6:00 PM,8.02
+Deshawn W.,Infants B,09/16/2026,7:27 AM,4:34 PM,9.12
+Camila L.,Ones,09/16/2026,6:30 AM,2:34 PM,8.07
+Owen C.,Ones,09/16/2026,9:59 AM,6:01 PM,8.03
+Aisha H.,Ones,09/16/2026,7:26 AM,4:31 PM,9.08
+Tyler D.,Twos A,09/16/2026,6:28 AM,2:34 PM,8.10
+Sofia G.,Twos A,09/16/2026,10:01 AM,6:01 PM,8.00
+Marcus P.,Twos A,09/16/2026,7:26 AM,4:31 PM,9.08
+Elena S.,Twos B,09/16/2026,6:33 AM,2:34 PM,8.02
+Noah A.,Twos B,09/16/2026,9:56 AM,6:00 PM,8.07
+Grace F.,Twos B,09/16/2026,7:28 AM,4:30 PM,9.03
+Andre N.,Threes,09/16/2026,6:28 AM,2:36 PM,8.13
+Leila E.,Threes,09/16/2026,10:02 AM,6:05 PM,8.05
+Ben V.,Threes,09/16/2026,7:26 AM,4:31 PM,9.08
+Rosa J.,Fours A,09/16/2026,6:28 AM,2:33 PM,8.08
+Kevin O.,Fours A,09/16/2026,10:03 AM,6:03 PM,8.00
+Tasha R.,Fours A,09/16/2026,7:26 AM,4:28 PM,9.03
+Emil K.,Fours B,09/16/2026,6:31 AM,2:32 PM,8.02
+Nora M.,Fours B,09/16/2026,10:02 AM,6:00 PM,7.97
+Maya R.,Infants A,09/17/2026,6:27 AM,2:34 PM,8.12
+Jordan K.,Infants A,09/17/2026,10:02 AM,6:00 PM,7.97
+Priya M.,Infants A,09/17/2026,7:26 AM,4:30 PM,9.07
+Luis T.,Infants B,09/17/2026,6:31 AM,2:31 PM,8.00
+Hannah B.,Infants B,09/17/2026,9:59 AM,6:00 PM,8.02
+Deshawn W.,Infants B,09/17/2026,7:33 AM,4:30 PM,8.95
+Camila L.,Ones,09/17/2026,6:26 AM,2:30 PM,8.07
+Owen C.,Ones,09/17/2026,10:02 AM,6:04 PM,8.03
+Aisha H.,Ones,09/17/2026,7:32 AM,4:33 PM,9.02
+Tyler D.,Twos A,09/17/2026,6:27 AM,2:30 PM,8.05
+Sofia G.,Twos A,09/17/2026,10:00 AM,6:01 PM,8.02
+Marcus P.,Twos A,09/17/2026,7:30 AM,4:32 PM,9.03
+Elena S.,Twos B,09/17/2026,6:26 AM,2:30 PM,8.07
+Noah A.,Twos B,09/17/2026,10:02 AM,6:00 PM,7.97
+Grace F.,Twos B,09/17/2026,7:30 AM,4:32 PM,9.03
+Andre N.,Threes,09/17/2026,6:29 AM,2:36 PM,8.12
+Leila E.,Threes,09/17/2026,9:56 AM,6:06 PM,8.17
+Ben V.,Threes,09/17/2026,7:27 AM,4:31 PM,9.07
+Rosa J.,Fours A,09/17/2026,6:32 AM,2:32 PM,8.00
+Kevin O.,Fours A,09/17/2026,10:00 AM,6:00 PM,8.00
+Tasha R.,Fours A,09/17/2026,7:26 AM,4:35 PM,9.15
+Emil K.,Fours B,09/17/2026,6:31 AM,2:34 PM,8.05
+Nora M.,Fours B,09/17/2026,9:58 AM,6:05 PM,8.12
+Maya R.,Infants A,09/18/2026,6:30 AM,2:29 PM,7.98
+Jordan K.,Infants A,09/18/2026,9:57 AM,6:06 PM,8.15
+Priya M.,Infants A,09/18/2026,7:32 AM,4:32 PM,9.00
+Luis T.,Infants B,09/18/2026,6:33 AM,2:31 PM,7.97
+Hannah B.,Infants B,09/18/2026,10:02 AM,5:59 PM,7.95
+Deshawn W.,Infants B,09/18/2026,7:31 AM,4:31 PM,9.00
+Camila L.,Ones,09/18/2026,6:33 AM,2:28 PM,7.92
+Owen C.,Ones,09/18/2026,10:00 AM,5:59 PM,7.98
+Aisha H.,Ones,09/18/2026,7:26 AM,4:29 PM,9.05
+Tyler D.,Twos A,09/18/2026,6:32 AM,2:34 PM,8.03
+Sofia G.,Twos A,09/18/2026,9:58 AM,6:06 PM,8.13
+Marcus P.,Twos A,09/18/2026,7:33 AM,4:32 PM,8.98
+Elena S.,Twos B,09/18/2026,6:31 AM,2:34 PM,8.05
+Noah A.,Twos B,09/18/2026,9:57 AM,5:59 PM,8.03
+Grace F.,Twos B,09/18/2026,7:32 AM,4:32 PM,9.00
+Andre N.,Threes,09/18/2026,6:30 AM,2:34 PM,8.07
+Leila E.,Threes,09/18/2026,9:58 AM,6:05 PM,8.12
+Ben V.,Threes,09/18/2026,7:27 AM,4:34 PM,9.12
+Rosa J.,Fours A,09/18/2026,6:31 AM,2:33 PM,8.03
+Kevin O.,Fours A,09/18/2026,9:56 AM,6:04 PM,8.13
+Tasha R.,Fours A,09/18/2026,7:32 AM,4:31 PM,8.98
+Emil K.,Fours B,09/18/2026,6:26 AM,2:34 PM,8.13
+Nora M.,Fours B,09/18/2026,9:59 AM,6:00 PM,8.02
