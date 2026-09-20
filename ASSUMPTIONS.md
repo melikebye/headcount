@@ -4,8 +4,10 @@
 - The two sample CSV files are fictional. `ratios_by_state.csv` is real but only partly verified.
 - The sample check-in column names imitate a childcare check-in report export. They are a guess.
   Brightwheel does not publish its export headers. The column matcher is meant to absorb the difference.
-- The "current schedule" in the sample (one opener, one closer and one mid shift per staffing slot)
-  is invented. Real savings can only be measured with a real center's timecards.
+- The sample staff file (an opener, a closer and a middle shift per room, plus four part-time
+  aides) is invented. Real savings can only be measured with a real center's files.
+- The staff file is read two ways: as the hours each person is available, and as the center's
+  current schedule for comparison. A real deployment would ask for availability separately.
 
 ## Rules
 - North Carolina ratios and maximum group sizes come from the state's Summary of the North Carolina
@@ -21,12 +23,14 @@
   or look misread. Check any state against its administrative code before use.
 
 ## Scheduling
-- The forecast is the highest headcount seen on that weekday plus a buffer. It is deliberately
+- The forecast is the highest headcount seen on that weekday plus a cushion. It is deliberately
   cautious and is not a statistical model.
-- Shifts run 3 to 8.5 hours. The plan can call for more part-time shifts than a center can hire
-  for; there is no setting yet for a minimum number of full-time staff.
-- Call-out repair assumes any staff member may work in any room.
-- Break relief is approximated as floaters between 11am and 2pm.
+- Staff are placed by a greedy, block-by-block rule set (see the README). It is fast and easy to
+  explain, but it is not guaranteed to find the fewest possible hours.
+- Shifts are at least 3 hours and at most 9. Breaks are not modeled, so the scheduled hours are
+  lower than a real schedule that pays for break cover.
+- Anyone may be placed in any room. Staff qualifications and continuity of care are not modeled.
+- Call-out repair keeps other people's days fixed where it can; it does not re-plan the whole day.
 
 ## Sources
 - Summary of the North Carolina Child Care Law: https://www.uncfsu.edu/assets/Documents/Early%20Childhood%20Learning%20Center/Summary%20NC%20Law.pdf

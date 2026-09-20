@@ -34,10 +34,13 @@ for room,_ in ROOMS:
     for s in range(SLOTS[room]):
         for kind in (("open","close") if s==0 else ("mid",)):
             staff.append((f"{first[i]} {last[i%len(last)]}.",room,kind)); i+=1
+# part-time aides who cover the busy edges of the day
+for room,kind in (('Infants A','am'),('Infants B','pm'),('Ones','pm'),('Twos A','pm')):
+    staff.append((f"{first[i]} {last[i%len(last)]}.",room,kind)); i+=1
 trows=[]
 for d in days:
     for name,room,kind in staff:
-        a,e={"open":(6*60+30,14*60+30),"close":(10*60,18*60),"mid":(7*60+30,16*60+30)}[kind]
+        a,e={"open":(6*60+30,14*60),"close":(12*60,18*60),"mid":(7*60+30,16*60+30),"am":(7*60+30,10*60+30),"pm":(14*60+30,18*60)}[kind]
         a+=random.randint(-4,3); e+=random.randint(-2,6)
         a=max(a,6*60+26)
         trows.append([name,room,d.strftime("%m/%d/%Y"),fmt(a),fmt(e),f"{(e-a)/60:.2f}"])

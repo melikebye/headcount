@@ -1,6 +1,14 @@
-// ---- Headcount engine: import, forecast, ratio rules, scheduling, call-out repair ----
+// ---- Headcount engine ----
+// Everything the app computes lives here, with no page code, so it can be read and tested on its own.
+//   1. Import      parseCSV, autoMap, normalize
+//   2. Rules       NC_BANDS, unitNeed (legal staff required per 15-minute block)
+//   3. Forecast    countByBlock, forecastCounts
+//   4. Schedule    rosterFor, assignDay (place the center's own staff where the children are)
+//   5. Check       coverage, outOfRatioMinutes, callOut
 const OPEN = 390, CLOSE = 1080, BLOCK = 15, NB = (CLOSE - OPEN) / BLOCK;
-const MIN_SHIFT = 12, MAX_SHIFT = 34, MAX_EXTENDED = 38, MAX_STRETCH = 8, BREAK_OVER = 24;
+const MIN_SHIFT = 12;   // 3 hours: nobody is sent home before this
+const MAX_SHIFT = 36;   // 9 hours: nobody is kept longer than this
+const LOOKAHEAD = 8;    // 2 hours: don't send someone home if they'd be needed again this soon
 const MERGE_BEFORE = (8 * 60 + 30 - OPEN) / BLOCK, MERGE_AFTER = (16 * 60 - OPEN) / BLOCK;
 const NC_BANDS = [
   { key: '0-12 months', ratio: 5, max: 10 },
@@ -167,27 +175,6 @@ function forecastCounts(history, weekday, rooms, buffer) {
   return out;
 }
 
-// Slice the required-staff curve into shifts, one layer of demand at a time.
-function sliceShifts(need) {
-  const shifts = [], top = Math.max(0, ...need);
-  for (let k = 1; k <= top; k++) {
-    let t = 0;
-    while (t < NB) {
-      if (need[t] < k) { t++; continue; }
-      let e = t; while (e < NB && need[e] >= k) e++;
-      let s = t, len = e - s;
-      if (len < MIN_SHIFT) { const extra = MIN_SHIFT - len; e = Math.min(NB, e + extra); s = Math.max(0, e - MIN_SHIFT); }
-      len = e - s;
-      if (len > MAX_SHIFT) { // one full-length shift plus a part-time one; alternate which end is long so handovers stagger
-        const short = Math.max(MIN_SHIFT, len - MAX_SHIFT);
-        const cut = k % 2 ? e - short : s + short;
-        shifts.push({ s, e: cut }); shifts.push({ s: cut, e });
-      } else shifts.push({ s, e });
-      t = Math.max(e, t + 1);
-    }
-  }
-  return shifts.sort((a, b) => a.s - b.s || a.e - b.e);
-}
 
 function coverage(shifts) {
   const c = new Array(NB).fill(0);
@@ -195,48 +182,99 @@ function coverage(shifts) {
   return c;
 }
 
-function planDay(units, fc, rosterByUnit) {
-  const plan = { units: [], floaters: [], hours: 0 };
-  let longShifts = 0;
-  for (const unit of units) {
-    const { need, merged, kids } = unitNeed(unit, fc, true);
-    const shifts = sliceShifts(need);
-    const roster = rosterByUnit[unit.id] || [];
-    shifts.forEach((sh, i) => { sh.unit = unit.id; sh.staff = roster[i] || `Open shift ${i - roster.length + 1}`; if (sh.e - sh.s > BREAK_OVER) longShifts++; });
-    plan.units.push({ unit, need, merged, kids, shifts });
+// The staff file lists who is available and when. One window per person per day.
+function rosterFor(staffRecords, units) {
+  const unitOfRoom = {};
+  for (const u of units) for (const r of u.rooms) unitOfRoom[r] = u.id;
+  const byName = {};
+  for (const r of staffRecords) {
+    const [s, e] = blocksOf(r.tin, r.tout);
+    const p = byName[r.who] || (byName[r.who] = { who: r.who, room: r.room, home: unitOfRoom[r.room] || null, s, e });
+    p.s = Math.min(p.s, s); p.e = Math.max(p.e, e);
   }
-  const s = (11 * 60 - OPEN) / BLOCK, e = (14 * 60 - OPEN) / BLOCK;
-  const n = Math.ceil(longShifts * 2 / (e - s));
-  for (let i = 0; i < n; i++) plan.floaters.push({ s, e, unit: 'float', staff: `Break relief ${i + 1}` });
-  plan.hours = hoursOf(plan);
-  return plan;
-}
-function hoursOf(plan) {
-  let b = 0;
-  for (const u of plan.units) for (const sh of u.shifts) b += sh.e - sh.s;
-  for (const f of plan.floaters) b += f.e - f.s;
-  return b * BLOCK / 60;
+  return Object.values(byName).sort((a, b) => a.s - b.s || a.e - b.e || a.who.localeCompare(b.who));
 }
 
-function currentDay(units, staffRecords) {
-  const out = { units: [], hours: 0 };
-  for (const unit of units) {
-    const shifts = staffRecords.filter(r => unit.rooms.includes(r.room)).map(r => {
-      const [s, e] = blocksOf(r.tin, r.tout); return { s, e, staff: r.who, unit: unit.id, room: r.room };
-    }).sort((a, b) => a.s - b.s);
-    out.units.push({ unit, shifts });
+// Place the center's own staff into age groups, block by block, so every group meets ratio.
+// Rules of thumb, in order: keep whoever is already in the room; bring in the room's own staff
+// before borrowing; start the person who has to leave soonest; send people home only once they
+// have done a minimum shift and will not be needed again within two hours.
+function assignDay(units, fc, roster, exclude) {
+  const needs = units.map(u => ({ unit: u, ...unitNeed(u, fc, true) }));
+  const people = roster.filter(p => p.who !== exclude).map(p => ({ ...p, state: 'idle', unit: null, start: null, day: null }));
+  const shifts = [], gaps = needs.map(() => new Array(NB).fill(0));
+  const active = ui => people.filter(p => p.state === 'on' && p.unit === units[ui].id);
+  const futureMax = (ui, t, span) => Math.max(0, ...needs[ui].need.slice(t, t + span));
+  // A group can lend someone only if its remaining people still cover its own requirement for the rest of that person's day.
+  const canSpare = (p, t) => {
+    const hi = units.findIndex(x => x.id === p.home);
+    if (hi < 0) return true;
+    const mates = people.filter(q => q !== p && q.home === p.home && q.state !== 'done');
+    for (let f = t; f < Math.min(p.e, NB); f++) {
+      const there = mates.filter(q => q.s <= f && f < q.e && (q.state !== 'on' || f - q.day < MAX_SHIFT)).length;
+      if (there < needs[hi].need[f]) return false;
+    }
+    return true;
+  };
+  const finish = (p, t) => { if (t > p.start) shifts.push({ who: p.who, home: p.home, room: p.room, unit: p.unit, s: p.start, e: t, from: p.s, until: p.e, borrowed: p.home !== p.unit }); p.state = 'done'; };
+
+  const surplus = (ui, t) => active(ui).length - Math.max(needs[ui].need[t], futureMax(ui, t, LOOKAHEAD));
+  for (let t = 0; t < NB; t++) {
+    for (const p of people) if (p.state === 'on' && (t >= p.e || t - p.day >= MAX_SHIFT)) finish(p, t);
+    units.forEach((u, ui) => {                       // bring in staff where the requirement rises
+      let short = needs[ui].need[t] - active(ui).length;
+      while (short > 0) {
+        const idle = people.filter(p => p.state === 'idle' && p.s <= t && p.e - t >= 4);
+        let pick = idle.filter(p => p.home === u.id).sort((a, b) => a.e - b.e)[0];
+        if (!pick) {                                 // someone already here whose own group can spare them
+          const donor = units.findIndex((x, xi) => xi !== ui && surplus(xi, t) > 0);
+          if (donor >= 0) {
+            const mover = active(donor).sort((a, b) => b.e - a.e)[0], day = mover.day;
+            finish(mover, t); mover.state = 'on'; mover.unit = u.id; mover.start = t; mover.day = day;
+            short--; continue;
+          }
+        }
+        if (!pick) pick = idle.filter(p => canSpare(p, t)).sort((a, b) => a.e - b.e)[0];
+        if (!pick) { gaps[ui][t] = short; break; }
+        pick.state = 'on'; pick.unit = u.id; pick.start = t; pick.day = t; short--;
+      }
+    });
+    units.forEach((u, ui) => {                       // send home anyone no longer needed
+      const free = active(ui).filter(p => t - p.day >= MIN_SHIFT).sort((a, b) => a.e - b.e);
+      for (const p of free) { if (surplus(ui, t) <= 0) break; finish(p, t); }
+    });
   }
-  out.hours = staffRecords.reduce((h, r) => h + (r.tout - r.tin) / 60, 0);
+  for (const p of people) if (p.state === 'on') finish(p, Math.min(p.e, NB));
+
+  const out = { units: [], unused: people.filter(p => p.state === 'idle').map(p => p.who), hours: 0, gapHours: 0 };
+  needs.forEach((n, ui) => {
+    const mine = shifts.filter(s => s.unit === n.unit.id).sort((a, b) => a.s - b.s || a.e - b.e);
+    const gapRuns = []; let t = 0;
+    while (t < NB) { if (gaps[ui][t] > 0) { let e = t; while (e < NB && gaps[ui][e] > 0) e++; gapRuns.push({ s: t, e, short: Math.max(...gaps[ui].slice(t, e)) }); t = e; } else t++; }
+    out.units.push({ unit: n.unit, need: n.need, merged: n.merged, kids: n.kids, shifts: mine, gaps: gapRuns });
+    out.hours += mine.reduce((h, s) => h + (s.e - s.s), 0) * BLOCK / 60;
+    out.gapHours += gaps[ui].reduce((a, b) => a + b, 0) * BLOCK / 60;
+  });
   return out;
 }
 
-// Minutes a unit spends with fewer staff than the law requires, against real headcounts.
+// The schedule as the staff file describes it: everyone works their whole window in their own room.
+function currentDay(units, roster) {
+  const out = { units: [], hours: 0 };
+  for (const unit of units) {
+    const shifts = roster.filter(p => p.home === unit.id).map(p => ({ who: p.who, room: p.room, unit: unit.id, s: p.s, e: p.e }));
+    out.units.push({ unit, shifts });
+    out.hours += shifts.reduce((h, s) => h + (s.e - s.s), 0) * BLOCK / 60;
+  }
+  return out;
+}
+
+// Minutes a group spends with fewer staff than the law requires, judged against real headcounts.
 function outOfRatioMinutes(unit, shifts, actualCounts, allowMerge, byRoom) {
   let blocks = 0;
-  if (byRoom) { // current schedule: each room staffed separately
+  if (byRoom) {
     for (const room of unit.rooms) {
-      const cov = coverage(shifts.filter(s => s.room === room));
-      const arr = actualCounts[room] || [];
+      const cov = coverage(shifts.filter(s => s.room === room)), arr = actualCounts[room] || [];
       for (let t = 0; t < NB; t++) if (Math.ceil((arr[t] || 0) / unit.band.ratio) > cov[t]) blocks++;
     }
   } else {
@@ -246,58 +284,61 @@ function outOfRatioMinutes(unit, shifts, actualCounts, allowMerge, byRoom) {
   return blocks * BLOCK;
 }
 
-// A staff member calls out: cover the gap from inside the building first.
-function repair(plan, unitId, shiftIndex) {
+// Someone calls out: leave everyone else's day alone as far as possible and fill only the hole.
+// Order: stretch colleagues in the same group (inside the hours they said they can work), bring in
+// anyone not yet scheduled, borrow from a group with spare cover, then name the hours needing a substitute.
+function callOut(plan, roster, who) {
   const next = JSON.parse(JSON.stringify(plan));
-  const pu = next.units.find(u => u.unit.id === unitId);
-  const gone = pu.shifts.splice(shiftIndex, 1)[0];
+  const pu = next.units.find(u => u.shifts.some(s => s.who === who));
+  const gone = pu.shifts.splice(pu.shifts.findIndex(s => s.who === who), 1)[0];
+  const deficit = () => { const c = coverage(pu.shifts); return pu.need.map((n, t) => Math.max(0, n - c[t])); };
+  const minutesAtRisk = deficit().filter(d => d > 0).length * BLOCK;
   const actions = [];
-  const deficit = () => { const cov = coverage(pu.shifts); return pu.need.map((n, t) => Math.max(0, n - cov[t])); };
-  const before = deficit().reduce((a, b) => a + (b > 0 ? 1 : 0), 0) * BLOCK;
 
-  // 1. stretch a colleague's shift in the same unit
-  let changed = true;
-  while (changed) {
-    changed = false; const def = deficit();
-    for (const sh of pu.shifts) {
-      while (sh.e < NB && def[sh.e] > 0 && sh.e - sh.s < MAX_EXTENDED && (sh.extLate || 0) + (sh.extEarly || 0) < MAX_STRETCH) { def[sh.e]--; sh.e++; sh.extLate = (sh.extLate || 0) + 1; changed = true; }
-      while (sh.s > 0 && def[sh.s - 1] > 0 && sh.e - sh.s < MAX_EXTENDED && (sh.extLate || 0) + (sh.extEarly || 0) < MAX_STRETCH) { def[sh.s - 1]--; sh.s--; sh.extEarly = (sh.extEarly || 0) + 1; changed = true; }
+  let def = deficit();
+  for (const sh of pu.shifts) {                                   // 1. stretch colleagues
+    const s0 = sh.s, e0 = sh.e;
+    while (sh.e < Math.min(sh.until, NB) && def[sh.e] > 0 && sh.e - sh.s < MAX_SHIFT) { def[sh.e]--; sh.e++; }
+    while (sh.s > Math.max(sh.from, 0) && def[sh.s - 1] > 0 && sh.e - sh.s < MAX_SHIFT) { def[sh.s - 1]--; sh.s--; }
+    const bits = [];
+    if (sh.s < s0) bits.push(`starts ${span(s0 - sh.s)} earlier, at ${clock(sh.s)}`);
+    if (sh.e > e0) bits.push(`stays ${span(sh.e - e0)} later, until ${clock(sh.e)}`);
+    if (bits.length) { sh.changed = true; actions.push(`${sh.who} ${bits.join(' and ')}`); }
+  }
+  for (const name of [...next.unused]) {                          // 2. bring in anyone not yet scheduled
+    const p = roster.find(r => r.who === name); def = deficit();
+    let s = -1, e = -1;
+    for (let t = Math.max(p.s, 0); t < Math.min(p.e, NB); t++) if (def[t] > 0) { if (s < 0) s = t; e = t + 1; }
+    if (s < 0) continue;
+    e = Math.min(e, s + MAX_SHIFT);
+    pu.shifts.push({ who: p.who, home: p.home, room: p.room, unit: pu.unit.id, s, e, from: p.s, until: p.e, borrowed: p.home !== pu.unit.id, changed: true });
+    next.unused = next.unused.filter(n => n !== name);
+    actions.push(`${p.who} comes in, ${clock(s)} to ${clock(e)}`);
+  }
+  def = deficit(); const moves = [];                              // 3. borrow from a group with spare cover
+  for (let t = 0; t < NB; t++) while (def[t] > 0) {
+    const last = moves[moves.length - 1]; let found = null;
+    for (const ou of next.units) {
+      if (ou === pu) continue;
+      const free = ou.shifts.filter(x => x.s <= t && t < x.e && !(x.lent || []).includes(t));
+      if (free.length - ou.need[t] < 1) continue;
+      found = (last && last.e === t && free.find(x => x === last.sh)) || free[0];
+      if (found) { found = { sh: found, from: ou.unit.name }; break; }
     }
+    if (!found) break;
+    (found.sh.lent || (found.sh.lent = [])).push(t);
+    if (last && last.sh === found.sh && last.e === t) last.e = t + 1; else moves.push({ sh: found.sh, from: found.from, s: t, e: t + 1 });
+    def[t]--;
   }
-  for (const sh of pu.shifts) {
-    if (sh.extEarly) actions.push({ kind: 'extend', text: `${sh.staff} starts ${span(sh.extEarly)} earlier, at ${clock(sh.s)}` });
-    if (sh.extLate) actions.push({ kind: 'extend', text: `${sh.staff} stays ${span(sh.extLate)} later, until ${clock(sh.e)}` });
+  for (const m of moves) {
+    pu.shifts.push({ who: m.sh.who, home: m.sh.home, room: m.sh.room, unit: pu.unit.id, s: m.s, e: m.e, from: m.sh.from, until: m.sh.until, borrowed: true, changed: true });
+    actions.push(`${m.sh.who} moves over from ${m.from}, ${clock(m.s)} to ${clock(m.e)}`);
   }
-  // 2. borrow someone from a unit that has spare cover in those blocks
-  const def = deficit(); const moves = [];
-  for (let t = 0; t < NB; t++) {
-    while (def[t] > 0) {
-      let found = null;
-      const last = moves[moves.length - 1];
-      const candidates = [];
-      for (const ou of next.units) {
-        if (ou === pu) continue;
-        const cov = coverage(ou.shifts.filter(x => !x.lent || !x.lent.includes(t)));
-        const lentHere = ou.shifts.filter(x => x.lent && x.lent.includes(t)).length;
-        if (cov[t] - ou.need[t] < 1) continue;
-        for (const sh of ou.shifts) if (sh.s <= t && sh.e > t && !(sh.lent && sh.lent.includes(t))) candidates.push({ ou, sh });
-      }
-      if (last && last.e === t) found = candidates.find(c => c.sh === last.sh);
-      if (!found) found = candidates[0];
-      if (!found) break;
-      (found.sh.lent || (found.sh.lent = [])).push(t);
-      if (last && last.sh === found.sh && last.e === t) last.e = t + 1; else moves.push({ sh: found.sh, from: found.ou.unit.name, s: t, e: t + 1 });
-      pu.shifts.push({ s: t, e: t + 1, staff: found.sh.staff, unit: unitId, borrowed: true });
-      def[t]--;
-    }
-  }
-  for (const m of moves) actions.push({ kind: 'move', text: `${m.sh.staff} moves from ${m.from} to ${pu.unit.name}, ${clock(m.s)} to ${clock(m.e)}` });
-  // 3. whatever is left needs a substitute
-  const left = deficit(); const subs = []; let t = 0;
-  while (t < NB) { if (left[t] > 0) { let e = t; while (e < NB && left[e] > 0) e++; subs.push({ s: t, e }); t = e; } else t++; }
-  for (const s of subs) actions.push({ kind: 'sub', text: `Substitute needed in ${pu.unit.name}, ${clock(s.s)} to ${clock(s.e)}` });
-  const subHours = subs.reduce((h, s) => h + (s.e - s.s), 0) * BLOCK / 60;
-  return { plan: next, gone, actions, minutesAtRisk: before, subHours, lostHours: (gone.e - gone.s) * BLOCK / 60 };
+  const left = deficit(), subs = []; let t = 0;                   // 4. whatever is left needs a substitute
+  while (t < NB) { if (left[t] > 0) { let e = t; while (e < NB && left[e] > 0) e++; subs.push({ s: t, e, short: Math.max(...left.slice(t, e)) }); t = e; } else t++; }
+  pu.gaps = subs;
+  pu.shifts.sort((a, b) => a.s - b.s || a.e - b.e);
+  return { plan: next, gone, unitName: pu.unit.name, actions, subs, minutesAtRisk, lostHours: (gone.e - gone.s) * BLOCK / 60, subHours: left.reduce((a, b) => a + b, 0) * BLOCK / 60 };
 }
 
 function span(blocks) { const m = blocks * BLOCK; return m < 60 ? `${m} minutes` : m % 60 ? `${Math.floor(m / 60)} hr ${m % 60} min` : `${m / 60} hr`; }
@@ -307,5 +348,5 @@ function clock(block) {
   return mi ? `${h}:${String(mi).padStart(2, '0')}${ap}` : `${h}${ap}`;
 }
 
-const Engine = { OPEN, CLOSE, BLOCK, NB, NC_BANDS, WEEKDAYS, MERGE_BEFORE, MERGE_AFTER, parseCSV, autoMap, normalize, guessBand, countByBlock, unitNeed, buildUnits, forecastCounts, sliceShifts, coverage, planDay, currentDay, outOfRatioMinutes, repair, clock, weekdayOf, SYNONYMS };
+const Engine = { OPEN, CLOSE, BLOCK, NB, NC_BANDS, WEEKDAYS, SYNONYMS, parseCSV, autoMap, normalize, guessBand, weekdayOf, countByBlock, unitNeed, buildUnits, forecastCounts, coverage, rosterFor, assignDay, currentDay, outOfRatioMinutes, callOut, clock };
 if (typeof module !== 'undefined') module.exports = Engine;

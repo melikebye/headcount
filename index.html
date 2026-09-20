@@ -3,97 +3,65 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Headcount Staffing Demo</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<title>Headcount</title>
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="wrap">
-  <header class="head">
-    <span class="eyebrow">Demo &middot; North Carolina ratio rules</span>
-    <h1>Headcount: staff every classroom to ratio, without guessing</h1>
-    <p class="lede">Upload the attendance and timecard reports a center already exports. Headcount forecasts how many children will be in each room every 15 minutes, works out the staff North Carolina law requires, and builds the week's schedule.</p>
-    <p class="note" id="sampleNote"><strong>Sample data.</strong> You are looking at a fictional 8-room center with 123 enrolled children and 23 staff. No real children or staff appear here. The column layout imitates a check-in report export and is an assumption until you load a real one.</p>
-  </header>
 
-  <section>
-    <details class="panel" id="dataPanel">
-      <summary>Use your own exports and check the room rules</summary>
-      <div class="imports">
-        <div class="imp">
-          <h2>Children's check-ins</h2>
-          <input type="file" id="fileAtt" accept=".csv,text/csv">
-          <div class="maps" id="mapAtt"></div>
-          <p class="status" id="statusAtt"></p>
-        </div>
-        <div class="imp">
-          <h2>Staff timecards</h2>
-          <input type="file" id="fileStf" accept=".csv,text/csv">
-          <div class="maps" id="mapStf"></div>
-          <p class="status" id="statusStf"></p>
-        </div>
-      </div>
-      <div class="scroll" style="margin-top:16px">
-        <table id="roomTable"></table>
-      </div>
-      <p class="muted" style="margin-top:10px">Rooms in the same age band may be combined before 8:30am and after 4pm when the combined group fits the maximum group size. Ratios: North Carolina summary of child care law. Check every rule against the current state code before relying on it.</p>
-    </details>
-  </section>
+<header class="hero wrap">
+  <img src="logo.png" alt="Headcount" width="1200" height="236">
+  <p class="sub">The right number of teachers in every room, every hour.</p>
+  <a class="cue" href="#why">See why it matters &darr;</a>
+</header>
 
-  <section>
-    <div class="controls">
-      <label class="field">Safety buffer
-        <select id="buffer"><option value="0">Plan to the busiest day seen</option><option value="1">Busiest day + 1 child per room</option><option value="2" selected>Busiest day + 2 children per room</option></select>
-      </label>
-      <label class="field">Average hourly wage ($)
-        <input type="number" id="wage" value="15" min="7" max="60" step="0.5" style="width:110px">
-      </label>
-    </div>
-    <div class="kpis" id="kpis"></div>
-    <p class="muted" id="kpiNote"></p>
-  </section>
+<section class="hook" id="why">
+  <div class="wrap">
+    <div class="num">96%</div>
+    <p class="claim">of child care providers had at least one health or safety failure when federal inspectors showed up unannounced.</p>
+    <p class="src">Source: U.S. Department of Health and Human Services, Office of Inspector General. Unannounced visits to 227 providers in nine states and Puerto Rico, 2013 to 2016. 218 of the 227 had at least one hazardous condition or compliance failure.</p>
+  </div>
+</section>
 
-  <section>
-    <div class="controls">
-      <div class="field">Day<div class="seg" id="daySeg" role="group" aria-label="Day of week"></div></div>
-      <label class="field">Age group
-        <select id="unitSel"></select>
-      </label>
-    </div>
-    <div class="panel">
-      <div style="display:flex;flex-direction:column;gap:12px">
-        <div>
-          <h2 id="chartTitle"></h2>
-          <p class="muted" id="chartSub"></p>
-        </div>
-        <div class="legend">
-          <span><i class="sw need"></i>Staff the law requires (forecast)</span>
-          <span><i class="sw"></i>Headcount schedule</span>
-          <span><i class="sw cur"></i>Current schedule</span>
-          <span><i class="sw merge"></i>Rooms combined</span>
-          <span><i class="sw oor"></i>Current schedule below ratio</span>
-        </div>
-        <div class="chartbox" id="chartbox"><svg id="chart" viewBox="0 0 960 300" role="img" aria-label="Staff required versus scheduled through the day"></svg><div class="tip" id="tip" hidden></div></div>
-        <details><summary>View as table</summary><div class="scroll"><table id="chartTable"></table></div></details>
+<section class="about">
+  <div class="wrap">
+    <h2>One of those rules applies every minute of the day: staffing.</h2>
+    <p class="lead">Every state limits how many children one teacher can look after, and the limit applies in every room, all day long. Children arrive and leave at different times, teachers call out, and most directors still build the schedule by hand. Headcount reads the check-in and staff files a center already has, works out how many teachers the law requires in each room every 15 minutes, and places the center's own staff where the children are. When someone calls out, it repairs the day in seconds.</p>
+    <ol class="steps">
+      <li><h3>Upload two files</h3><span>Children's check-ins and your staff's hours, straight from the software you already use.</span></li>
+      <li><h3>Headcount forecasts each room</h3><span>How many children, every 15 minutes, and how many teachers the law requires for them.</span></li>
+      <li><h3>Get the week's schedule</h3><span>Your own people, placed where the children are. Any short-staffed hour is flagged before it happens.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="demo" id="demo">
+  <div class="wrap">
+    <h2>A sample day at a sample center</h2>
+    <p class="muted">Fictional center: 8 classrooms, 123 children, 27 staff, North Carolina rules. No real children or staff appear here.</p>
+    <div class="bar">
+      <div class="seg" id="daySeg" role="group" aria-label="Day of the week"></div>
+      <div class="legend">
+        <span><i class="key kids"></i>Children in the room (number = headcount)</span>
+        <span><i class="key home"></i>Staff in their own room</span>
+        <span><i class="key moved"></i>Staff helping another room</span>
+        <span><i class="key merged"></i>Two rooms combined</span>
       </div>
     </div>
-  </section>
+    <div class="cal-scroll" id="calendar"></div>
+  </div>
+</section>
 
-  <section>
-    <div class="controls" style="justify-content:space-between">
-      <div><h2 id="schedTitle">Schedule</h2><p class="muted">Press "Called out" on any shift to see how the day gets repaired.</p></div>
-      <div class="seg" id="viewSeg" role="group" aria-label="Which schedule">
-        <button type="button" data-view="plan" aria-pressed="true">Headcount schedule</button>
-        <button type="button" data-view="cur" aria-pressed="false">Current schedule</button>
-      </div>
-    </div>
-    <div id="repairBox" hidden></div>
-    <div class="panel scroll"><div class="gantt" id="gantt"></div></div>
-    <p class="muted">Repairs assume every staff member is qualified for the room they move to. A real deployment would hold per-person qualifications, availability, overtime and break rules.</p>
-  </section>
-</div>
+<section class="cta wrap">
+  <h2>Try it with your own center's files.</h2>
+  <a class="btn big" href="app.html">Get started!</a>
+</section>
 
-<script src="engine.js"></script>
-<script src="app.js"></script>
+<footer class="wrap">Headcount is a student demo. All data shown is fictional.</footer>
+
+<script src="calendar.js"></script>
+<script src="demo_data.js"></script>
+<script src="landing.js"></script>
 </body>
 </html>
