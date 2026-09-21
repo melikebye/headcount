@@ -13,7 +13,7 @@
 - North Carolina's own bands, from the state's Summary of the North Carolina Child Care Law (the copy
   read was revised June 2019; they match the state's 2025-2027 CCDF plan): 0-12 months 1:5 (group 10),
   12-24 months 1:6 (12), 2-3 years 1:10 (20), 3-4 years 1:15 (25), 4-5 years 1:20 (25).
-- The app groups these into three categories: Infants 1:5, Toddlers 1:6, Preschoolers (ages 2 to 5) 1:10
+- The app groups these into three categories: Infants 1:5, Toddlers 1:6, Preschool (ages 2 to 5) 1:10
   with a maximum group of 20. One preschool category has to use the age-2 ratio, because the state
   applies the youngest child's ratio to a mixed group. This is stricter than the law requires for
   rooms of only 3- or 4-year-olds, so it overstates the staff those rooms need.

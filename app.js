@@ -184,7 +184,7 @@ function drawChart() {
 function drawRooms() {
   const m = state.model;
   $('roomTable').innerHTML = '<thead><tr><th>Room</th><th>Category</th><th class="n">Ratio</th><th class="n">Max group</th><th class="n">Children seen</th></tr></thead><tbody>' +
-    m.rooms.map((r, i) => { const b = E.NC_BANDS[state.bandOf[r]]; return `<tr><td>${esc(r)}</td><td><select id="band-${i}" data-room="${esc(r)}">${E.NC_BANDS.map((x, j) => `<option value="${j}" ${j === state.bandOf[r] ? 'selected' : ''}>${x.label} (${x.key})</option>`).join('')}</select></td><td class="n">1:${b.ratio}</td><td class="n">${b.max}</td><td class="n">${m.enrolled[r] ? m.enrolled[r].size : 0}</td></tr>`; }).join('') + '</tbody>';
+    m.rooms.map((r, i) => [r, i]).sort((x, y) => state.bandOf[x[0]] - state.bandOf[y[0]] || x[0].localeCompare(y[0])).map(([r, i]) => { const b = E.NC_BANDS[state.bandOf[r]]; return `<tr><td>${esc(r)}</td><td><select id="band-${i}" data-room="${esc(r)}">${E.NC_BANDS.map((x, j) => `<option value="${j}" ${j === state.bandOf[r] ? 'selected' : ''}>${x.label} (${x.key})</option>`).join('')}</select></td><td class="n">1:${b.ratio}</td><td class="n">${b.max}</td><td class="n">${m.enrolled[r] ? m.enrolled[r].size : 0}</td></tr>`; }).join('') + '</tbody>';
   $('roomTable').querySelectorAll('select').forEach(s => s.onchange = () => { state.bandOf[s.dataset.room] = +s.value; build(false); });
 }
 

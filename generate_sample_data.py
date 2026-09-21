@@ -1,7 +1,7 @@
 import random, csv, datetime as dt
 random.seed(7)
-ROOMS=[("Infants A",9),("Infants B",8),("Ones",11),("Twos A",16),("Twos B",14),("Threes",22),("Fours A",23),("Fours B",20)]
-SLOTS={"Infants A":2,"Infants B":2,"Ones":2,"Twos A":2,"Twos B":2,"Threes":3,"Fours A":3,"Fours B":3}  # staffing slots per room at 1:5 infants, 1:6 toddlers, 1:10 preschoolers
+ROOMS=[("Infants A",9),("Infants B",8),("Toddlers",11),("Preschool A",16),("Preschool B",14),("Preschool C",22),("Preschool D",23),("Preschool E",20)]
+SLOTS={"Infants A":2,"Infants B":2,"Toddlers":2,"Preschool A":2,"Preschool B":2,"Preschool C":3,"Preschool D":3,"Preschool E":3}  # staffing slots per room at 1:5 infants, 1:6 toddlers, 1:10 preschoolers
 start=dt.date(2026,8,17)  # Monday; 5 weeks -> through Sep 18
 days=[start+dt.timedelta(d) for d in range(35) if (start+dt.timedelta(d)).weekday()<5]
 def fmt(m): 
@@ -13,7 +13,7 @@ for room,n in ROOMS:
     for i in range(n):
         cid+=random.randint(1,4)
         arr=clip(random.gauss(8*60,40),6*60+30,9*60+30)
-        part = room in("Threes","Fours A","Fours B") and random.random()<0.18
+        part = room in("Preschool C","Preschool D","Preschool E") and random.random()<0.18
         dep=clip(random.gauss(12*60+40,15),12*60,13*60+15) if part else clip(random.gauss(16*60+50,45),14*60+30,18*60)
         kids.append(dict(id=f"Child {cid:04d}",room=room,arr=arr,dep=dep,rate=random.uniform(0.86,0.98)))
 att={0:0.95,1:1.0,2:1.0,3:0.99,4:0.88}
@@ -35,7 +35,7 @@ for room,_ in ROOMS:
         for kind in (("open","close") if s==0 else ("late" if s==2 or room=="Infants B" else "mid",)):
             staff.append((f"{first[i]} {last[i%len(last)]}.",room,kind)); i+=1
 # part-time aides who cover the busy edges of the day
-for room,kind in (('Infants A','am'),('Infants B','pm'),('Ones','pm'),('Twos A','pm'),('Threes','noon'),('Fours A','pm')):
+for room,kind in (('Infants A','am'),('Infants B','pm'),('Toddlers','pm'),('Preschool A','pm'),('Preschool C','noon'),('Preschool D','pm')):
     staff.append((f"{first[i]} {last[i%len(last)]}.",room,kind)); i+=1
 trows=[]
 for d in days:

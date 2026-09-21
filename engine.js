@@ -11,13 +11,13 @@ const MAX_SHIFT = 36;   // 9 hours: nobody is kept longer than this
 const LOOKAHEAD = 8;    // 2 hours: don't send someone home if they'd be needed again this soon
 const MERGE_BEFORE = (8 * 60 + 30 - OPEN) / BLOCK, MERGE_AFTER = (16 * 60 - OPEN) / BLOCK;
 // North Carolina's staff-to-child rules, grouped into the three categories directors use.
-// Infants and toddlers are the state's own bands. "Preschoolers" covers ages 2 to 5, where the
+// Infants and toddlers are the state's own bands. "Preschool" covers ages 2 to 5, where the
 // state sets 1:10 (age 2), 1:15 (age 3) and 1:20 (age 4). When ages are mixed the state applies the
 // youngest child's ratio, so one preschool category has to use 1:10 to be legal for every child in it.
 const NC_BANDS = [
   { label: 'Infants', key: 'birth to 12 months', ratio: 5, max: 10 },
   { label: 'Toddlers', key: '12 to 24 months', ratio: 6, max: 12 },
-  { label: 'Preschoolers', key: '2 to 5 years', ratio: 10, max: 20 },
+  { label: 'Preschool', key: '2 to 5 years', ratio: 10, max: 20 },
 ];
 const WEEKDAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
