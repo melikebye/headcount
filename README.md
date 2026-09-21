@@ -18,7 +18,7 @@ it repairs the day.
 | Page | What it is |
 |---|---|
 | `index.html` | Landing page: logo, the problem, how it works, and a sample week in the calendar |
-| `app.html` | File upload: upload two CSVs, get the week's schedule, test a call-out |
+| `app.html` | File Upload: upload two CSVs, get the week's schedule, test a call-out |
 | `pricing.html` | Pricing: three flat tiers by classroom count |
 
 ## Run it
