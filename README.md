@@ -13,12 +13,13 @@ it repairs the day.
 > by `generate_sample_data.py`. The savings the tool shows on sample data illustrate the mechanism
 > and are not evidence about a real center.
 
-## The two pages
+## The three pages
 
 | Page | What it is |
 |---|---|
 | `index.html` | Landing page: logo, the problem, how it works, and a sample week in the calendar |
-| `app.html` | The tool: upload two CSVs, get the week's schedule, test a call-out |
+| `app.html` | File upload: upload two CSVs, get the week's schedule, test a call-out |
+| `pricing.html` | Pricing: three flat tiers by classroom count |
 
 ## Run it
 
@@ -56,10 +57,10 @@ nobody over nine hours, every short block flagged).
 
 1. **Import.** Any CSV with a room, a date, a time in and a time out. Columns are matched by
    name; anything unmatched can be set by hand.
-2. **Forecast.** For each weekday, plan to the busiest day seen in the history, plus a cushion
-   of children per room.
-3. **Requirement.** Children in the room divided by the legal ratio, rounded up. Rooms in the same
-   age band may combine before 8:30am and after 4pm when the group fits the legal maximum size.
+2. **Forecast.** For each weekday, plan to the busiest day seen in the history (also checking
+   15 minutes either side of each block), plus a cushion of children per room.
+3. **Requirement.** Children in the room divided by the legal ratio, rounded up. Three categories:
+   infants 1:5, toddlers 1:6, preschoolers 1:10. Rooms in the same category may combine before 8:30am and after 4pm when the group fits the legal maximum size.
 4. **Place the staff.** Block by block: keep whoever is already in the room, bring in the room's
    own staff before borrowing, start the person who has to leave soonest, and send people home
    only after a three-hour minimum and when they will not be needed again within two hours.

@@ -10,13 +10,14 @@ const MIN_SHIFT = 12;   // 3 hours: nobody is sent home before this
 const MAX_SHIFT = 36;   // 9 hours: nobody is kept longer than this
 const LOOKAHEAD = 8;    // 2 hours: don't send someone home if they'd be needed again this soon
 const MERGE_BEFORE = (8 * 60 + 30 - OPEN) / BLOCK, MERGE_AFTER = (16 * 60 - OPEN) / BLOCK;
+// North Carolina's staff-to-child rules, grouped into the three categories directors use.
+// Infants and toddlers are the state's own bands. "Preschoolers" covers ages 2 to 5, where the
+// state sets 1:10 (age 2), 1:15 (age 3) and 1:20 (age 4). When ages are mixed the state applies the
+// youngest child's ratio, so one preschool category has to use 1:10 to be legal for every child in it.
 const NC_BANDS = [
-  { key: '0-12 months', ratio: 5, max: 10 },
-  { key: '12-24 months', ratio: 6, max: 12 },
-  { key: '2-3 years', ratio: 10, max: 20 },
-  { key: '3-4 years', ratio: 15, max: 25 },
-  { key: '4-5 years', ratio: 20, max: 25 },
-  { key: '5 years and older', ratio: 25, max: 25 },
+  { label: 'Infants', key: 'birth to 12 months', ratio: 5, max: 10 },
+  { label: 'Toddlers', key: '12 to 24 months', ratio: 6, max: 12 },
+  { label: 'Preschoolers', key: '2 to 5 years', ratio: 10, max: 20 },
 ];
 const WEEKDAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -109,11 +110,7 @@ function guessBand(room) {
   const r = room.toLowerCase();
   if (/infant|bab(y|ies)|nursery/.test(r)) return 0;
   if (/\bones?\b|toddler|wobbler/.test(r)) return 1;
-  if (/\btwos?\b/.test(r)) return 2;
-  if (/\bthrees?\b/.test(r)) return 3;
-  if (/\bfours?\b|pre-?k|prek/.test(r)) return 4;
-  if (/school|after|kinder/.test(r)) return 5;
-  return 3;
+  return 2;                                   // twos, threes, fours, pre-K and anything unrecognized
 }
 
 function blocksOf(tin, tout) {
@@ -154,16 +151,11 @@ function buildUnits(rooms, bandOf) {
   const byBand = {};
   for (const room of rooms) (byBand[bandOf[room]] || (byBand[bandOf[room]] = [])).push(room);
   return Object.keys(byBand).map(Number).sort((a, b) => a - b).map(b => ({
-    id: 'u' + b, band: NC_BANDS[b], rooms: byBand[b].sort(),
-    name: byBand[b].length > 1 ? commonName(byBand[b]) : byBand[b][0],
+    id: 'u' + b, band: NC_BANDS[b], rooms: byBand[b].sort(), name: NC_BANDS[b].label,
   }));
 }
-function commonName(rooms) {
-  const first = rooms[0].split(' ')[0];
-  return rooms.every(r => r.split(' ')[0] === first) ? `${first} (${rooms.length} rooms)` : rooms.join(' + ');
-}
 
-// Highest headcount seen on this weekday in the history, plus a safety buffer of children.
+// Highest headcount seen on this weekday in the history (also checking 15 minutes either side), plus a safety cushion of children.
 function forecastCounts(history, weekday, rooms, buffer) {
   const out = {};
   for (const room of rooms) out[room] = new Array(NB).fill(0);
@@ -171,7 +163,13 @@ function forecastCounts(history, weekday, rooms, buffer) {
     if (weekdayOf(date) !== weekday) continue;
     for (const room of rooms) { const arr = day[room]; if (!arr) continue; for (let t = 0; t < NB; t++) if (arr[t] > out[room][t]) out[room][t] = arr[t]; }
   }
-  for (const room of rooms) for (let t = 0; t < NB; t++) if (out[room][t] > 0) out[room][t] += buffer;
+  // Children arrive and leave a little earlier or later than they ever have before, so each
+  // block also looks at the 15 minutes either side of it before the cushion is added.
+  for (const room of rooms) {
+    const seen = out[room];
+    out[room] = seen.map((n, t) => Math.max(n, seen[t - 1] || 0, seen[t + 1] || 0));
+    for (let t = 0; t < NB; t++) if (out[room][t] > 0) out[room][t] += buffer;
+  }
   return out;
 }
 
@@ -235,6 +233,7 @@ function assignDay(units, fc, roster, exclude) {
           }
         }
         if (!pick) pick = idle.filter(p => canSpare(p, t)).sort((a, b) => a.e - b.e)[0];
+        if (!pick) pick = people.filter(p => p.state === 'idle' && p.s <= t && t < p.e && (p.home === u.id || canSpare(p, t))).sort((a, b) => b.e - a.e)[0];   // last resort: a short stint beats a gap
         if (!pick) { gaps[ui][t] = short; break; }
         pick.state = 'on'; pick.unit = u.id; pick.start = t; pick.day = t; short--;
       }

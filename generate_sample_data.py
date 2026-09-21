@@ -1,7 +1,7 @@
 import random, csv, datetime as dt
 random.seed(7)
 ROOMS=[("Infants A",9),("Infants B",8),("Ones",11),("Twos A",16),("Twos B",14),("Threes",22),("Fours A",23),("Fours B",20)]
-SLOTS={"Infants A":2,"Infants B":2,"Ones":2,"Twos A":2,"Twos B":2,"Threes":2,"Fours A":2,"Fours B":1}
+SLOTS={"Infants A":2,"Infants B":2,"Ones":2,"Twos A":2,"Twos B":2,"Threes":3,"Fours A":3,"Fours B":3}  # staffing slots per room at 1:5 infants, 1:6 toddlers, 1:10 preschoolers
 start=dt.date(2026,8,17)  # Monday; 5 weeks -> through Sep 18
 days=[start+dt.timedelta(d) for d in range(35) if (start+dt.timedelta(d)).weekday()<5]
 def fmt(m): 
@@ -27,20 +27,20 @@ for d in days:
         rows.append([k["id"],k["room"],d.strftime("%m/%d/%Y"),fmt(a),fmt(e),f"{(int(e)-int(a))/60:.2f}","Parent/Guardian","Parent/Guardian"])
 with open("sample_checkin_report.csv","w",newline="") as f:
     w=csv.writer(f); w.writerow(["Student","Room","Date","Check-in Time","Check-out Time","Total Hours","Checked In By","Checked Out By"]); w.writerows(rows)
-first=["Maya","Jordan","Priya","Luis","Hannah","Deshawn","Camila","Owen","Aisha","Tyler","Sofia","Marcus","Elena","Noah","Grace","Andre","Leila","Ben","Rosa","Kevin","Tasha","Emil","Nora","Victor","Imani","Cole","Paige","Rafael","June","Silas"]
+first=["Maya","Jordan","Priya","Luis","Hannah","Deshawn","Camila","Owen","Aisha","Tyler","Sofia","Marcus","Elena","Noah","Grace","Andre","Leila","Ben","Rosa","Kevin","Tasha","Emil","Nora","Victor","Imani","Cole","Paige","Rafael","June","Silas","Anya","Marco","Dalia","Theo","Simone","Reggie"]
 last="RKMTBWLCHDGPSAFNEVJO"
 staff=[];i=0
 for room,_ in ROOMS:
     for s in range(SLOTS[room]):
-        for kind in (("open","close") if s==0 else ("mid",)):
+        for kind in (("open","close") if s==0 else ("late" if s==2 or room=="Infants B" else "mid",)):
             staff.append((f"{first[i]} {last[i%len(last)]}.",room,kind)); i+=1
 # part-time aides who cover the busy edges of the day
-for room,kind in (('Infants A','am'),('Infants B','pm'),('Ones','pm'),('Twos A','pm')):
+for room,kind in (('Infants A','am'),('Infants B','pm'),('Ones','pm'),('Twos A','pm'),('Threes','noon'),('Fours A','pm')):
     staff.append((f"{first[i]} {last[i%len(last)]}.",room,kind)); i+=1
 trows=[]
 for d in days:
     for name,room,kind in staff:
-        a,e={"open":(6*60+30,14*60),"close":(12*60,18*60),"mid":(7*60+30,16*60+30),"am":(7*60+30,10*60+30),"pm":(14*60+30,18*60)}[kind]
+        a,e={"open":(6*60+30,14*60),"close":(12*60,18*60),"mid":(7*60+30,16*60+30),"late":(8*60,17*60),"am":(7*60,10*60+30),"noon":(9*60+30,13*60+30),"pm":(14*60+30,18*60)}[kind]
         a+=random.randint(-4,3); e+=random.randint(-2,6)
         a=max(a,6*60+26)
         trows.append([name,room,d.strftime("%m/%d/%Y"),fmt(a),fmt(e),f"{(e-a)/60:.2f}"])

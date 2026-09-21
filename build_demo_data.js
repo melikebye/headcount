@@ -20,7 +20,7 @@ const days = {};
 for (const d of dates.slice(-5)) {
   const wd = E.weekdayOf(d);
   const plan = E.assignDay(units, E.forecastCounts(history, wd, rooms, 1), E.rosterFor(stf.filter(r => r.date === d), units));
-  days[wd] = { units: plan.units.map(pu => ({ name: pu.unit.name, ratio: pu.unit.band.ratio, kids: pu.kids, need: pu.need, merged: pu.merged,
+  days[wd] = { units: plan.units.map(pu => ({ name: pu.unit.name, ratio: pu.unit.band.ratio, rooms: pu.unit.rooms.length, kids: pu.kids, need: pu.need, merged: pu.merged,
     shifts: pu.shifts.map(x => ({ who: x.who, s: x.s, e: x.e, borrowed: x.borrowed })), gaps: pu.gaps })) };
 }
 const demo = { open: E.OPEN, blockMinutes: E.BLOCK, dayNames: E.WEEKDAYS, days };

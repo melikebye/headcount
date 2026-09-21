@@ -4,16 +4,19 @@
 - The two sample CSV files are fictional. `ratios_by_state.csv` is real but only partly verified.
 - The sample check-in column names imitate a childcare check-in report export. They are a guess.
   Brightwheel does not publish its export headers. The column matcher is meant to absorb the difference.
-- The sample staff file (an opener, a closer and a middle shift per room, plus four part-time
-  aides) is invented. Real savings can only be measured with a real center's files.
+- The sample staff file (openers, closers and middle shifts per room, plus six part-time aides;
+  33 people in all) is invented. Real savings can only be measured with a real center's files.
 - The staff file is read two ways: as the hours each person is available, and as the center's
   current schedule for comparison. A real deployment would ask for availability separately.
 
 ## Rules
-- North Carolina ratios and maximum group sizes come from the state's Summary of the North Carolina
-  Child Care Law (the copy read was revised June 2019) and match the state's 2025-2027 CCDF plan:
-  0-12 months 1:5 (group 10), 12-24 months 1:6 (12), 2-3 years 1:10 (20), 3-4 years 1:15 (25),
-  4-5 years 1:20 (25), 5 and older 1:25 (25).
+- North Carolina's own bands, from the state's Summary of the North Carolina Child Care Law (the copy
+  read was revised June 2019; they match the state's 2025-2027 CCDF plan): 0-12 months 1:5 (group 10),
+  12-24 months 1:6 (12), 2-3 years 1:10 (20), 3-4 years 1:15 (25), 4-5 years 1:20 (25).
+- The app groups these into three categories: Infants 1:5, Toddlers 1:6, Preschoolers (ages 2 to 5) 1:10
+  with a maximum group of 20. One preschool category has to use the age-2 ratio, because the state
+  applies the youngest child's ratio to a mixed group. This is stricter than the law requires for
+  rooms of only 3- or 4-year-olds, so it overstates the staff those rooms need.
 - When ages are mixed, North Carolina applies the youngest child's ratio. The demo avoids the
   question by only combining rooms in the same age band.
 - The combining windows (before 8:30am, after 4pm) are a design choice, not a legal rule.

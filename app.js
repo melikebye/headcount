@@ -118,7 +118,7 @@ function drawDay() { drawCalendar(); drawPick(); drawRepair(); drawChart(); }
 function drawCalendar() {
   const plan = activePlan();
   $('calTitle').textContent = `${E.WEEKDAYS[state.weekday]}'s schedule`;
-  renderCalendar($('calendar'), { units: plan.units.map(pu => ({ name: pu.unit.name, ratio: pu.unit.band.ratio, kids: pu.kids, need: pu.need, merged: pu.merged, shifts: pu.shifts, gaps: pu.gaps })) },
+  renderCalendar($('calendar'), { units: plan.units.map(pu => ({ name: pu.unit.name, ratio: pu.unit.band.ratio, rooms: pu.unit.rooms.length, kids: pu.kids, need: pu.need, merged: pu.merged, shifts: pu.shifts, gaps: pu.gaps })) },
     { open: E.OPEN, blockMinutes: E.BLOCK, picked: state.picked, onPick: sh => { if (state.repair) return; state.picked = sh.who; drawCalendar(); drawPick(); } });
   $('unusedNote').textContent = plan.unused.length ? `Not needed on this day: ${plan.unused.join(', ')}.` : '';
 }
@@ -153,7 +153,7 @@ function drawChart() {
   const d = state.model.days[state.weekday], pu = activePlan().units.find(u => u.unit.id === state.unit), cu = d.current.units.find(u => u.unit.id === state.unit);
   const pc = E.coverage(pu.shifts), cc = E.coverage(cu.shifts), NB = E.NB;
   const roomNeed = E.unitNeed(pu.unit, d.fc, false).need;         // your file staffs each room on its own, with no combining
-  $('chartSub').textContent = `${pu.unit.name}, ${E.WEEKDAYS[state.weekday]}s. Ages ${pu.unit.band.key}: one teacher per ${pu.unit.band.ratio} children, groups of up to ${pu.unit.band.max}.`;
+  $('chartSub').textContent = `${pu.unit.name}, ${E.WEEKDAYS[state.weekday]}s. ${pu.unit.band.label}, ${pu.unit.band.key}: one teacher per ${pu.unit.band.ratio} children, groups of up to ${pu.unit.band.max}.`;
   const W = 960, H = 300, L = 40, R = 16, T = 22, B = 34, pw = W - L - R, ph = H - T - B;
   const top = Math.max(2, ...pu.need, ...pc, ...cc) + 1, x = t => L + t / NB * pw, y = v => T + ph - v / top * ph;
   const step = a => { let p = `M${x(0)},${y(a[0])}`; for (let i = 0; i < NB; i++) { p += `H${x(i + 1)}`; if (i + 1 < NB) p += `V${y(a[i + 1])}`; } return p; };
@@ -183,8 +183,8 @@ function drawChart() {
 // ---------- 6. rooms and rules ----------
 function drawRooms() {
   const m = state.model;
-  $('roomTable').innerHTML = '<thead><tr><th>Room</th><th>Age band</th><th class="n">Ratio</th><th class="n">Max group</th><th class="n">Children seen</th></tr></thead><tbody>' +
-    m.rooms.map((r, i) => { const b = E.NC_BANDS[state.bandOf[r]]; return `<tr><td>${esc(r)}</td><td><select id="band-${i}" data-room="${esc(r)}">${E.NC_BANDS.map((x, j) => `<option value="${j}" ${j === state.bandOf[r] ? 'selected' : ''}>${x.key}</option>`).join('')}</select></td><td class="n">1:${b.ratio}</td><td class="n">${b.max}</td><td class="n">${m.enrolled[r] ? m.enrolled[r].size : 0}</td></tr>`; }).join('') + '</tbody>';
+  $('roomTable').innerHTML = '<thead><tr><th>Room</th><th>Category</th><th class="n">Ratio</th><th class="n">Max group</th><th class="n">Children seen</th></tr></thead><tbody>' +
+    m.rooms.map((r, i) => { const b = E.NC_BANDS[state.bandOf[r]]; return `<tr><td>${esc(r)}</td><td><select id="band-${i}" data-room="${esc(r)}">${E.NC_BANDS.map((x, j) => `<option value="${j}" ${j === state.bandOf[r] ? 'selected' : ''}>${x.label} (${x.key})</option>`).join('')}</select></td><td class="n">1:${b.ratio}</td><td class="n">${b.max}</td><td class="n">${m.enrolled[r] ? m.enrolled[r].size : 0}</td></tr>`; }).join('') + '</tbody>';
   $('roomTable').querySelectorAll('select').forEach(s => s.onchange = () => { state.bandOf[s.dataset.room] = +s.value; build(false); });
 }
 

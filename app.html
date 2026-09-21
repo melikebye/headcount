@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Headcount: build a schedule</title>
+<title>Headcount: file upload</title>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div class="top"><div class="wrap">
-  <a href="index.html"><img src="logo.png" alt="Headcount home" width="1200" height="236"></a>
-  <a class="btn small" href="index.html">&larr; Back</a>
-</div></div>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html"><img src="logo.png" alt="Headcount" width="1200" height="236"></a>
+  <nav aria-label="Main"><a href="index.html">Home</a><a href="app.html" aria-current="page">File upload</a><a href="pricing.html">Pricing</a></nav>
+</div></header>
 
 <main class="tool wrap">
 
@@ -47,7 +47,7 @@
   <div class="tool" style="padding-block:0">
 
     <section>
-      <p class="note" id="sampleNote" hidden><strong>Sample data.</strong> A fictional center: 8 classrooms, 123 children, 27 staff. The savings below show how the tool works. They are not evidence about a real center.</p>
+      <p class="note" id="sampleNote" hidden><strong>Sample data.</strong> A fictional center: 8 classrooms, 123 children, 33 staff. The savings below show how the tool works. They are not evidence about a real center.</p>
       <p class="summary" id="summary"></p>
       <div class="tiles" id="tiles"></div>
       <div class="actions">
@@ -100,7 +100,7 @@
     <section>
       <details class="panel"><summary>Rooms and the rules applied to them</summary>
         <div class="scroll"><table id="roomTable"></table></div>
-        <p class="muted">North Carolina ratios and group sizes. Rooms in the same age band may be combined before 8:30am and after 4pm when the combined group fits the maximum size. Breaks, staff qualifications and nap-time rules are not modeled yet. Check every rule against the current state code before relying on it.</p>
+        <p class="muted">North Carolina rules in three categories: infants 1:5, toddlers 1:6, preschoolers 1:10. The state sets 1:10 at age 2, 1:15 at age 3 and 1:20 at age 4, and applies the youngest child's ratio to a mixed group, so one preschool category uses 1:10. Rooms in the same category may be combined before 8:30am and after 4pm when the combined group fits the maximum size. Breaks, staff qualifications and nap-time rules are not modeled yet. Check every rule against the current state code before relying on it.</p>
       </details>
     </section>
 
